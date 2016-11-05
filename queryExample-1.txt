@@ -1,0 +1,26 @@
+Jesse Strivelli, Andrew Khazanovich, Anton Kotenko
+
+This project targets students looking for the right school to go to. There are three categories that we are trying to target: incoming freshmen, transfer students, or people that are looking to go back to school.
+
+The main idea of this project is give these students a perspective of how much value they are actually getting out of each school when they choose a particular school/major.
+
+We believe the user would return to our site anytime they need to figure out what major they might want to choose or what major to change to if they are struggling in their current one. Also, the students are going to use the site to help them decide what school they will be applying to and what programs/majors to choose. Overall this site is intended to help students so we see them taking full advantage of this opportunity.
+
+Example Comparisons:
+
+1.) You can compare the starting salary of a new grad for a specific major to what its lifetime earning potential is.
+example queries:
+What major has the highest/lowest lifetime salary growth. How does it compare to the average lifetime salary growth?
+
+2.) An important question a lot of students wonder is how long will it take them to pay off their debt. That is a very important factor in deciding a college/major. We plan on making this very easy to calculate.
+example query:
+How many years will it take me to pay off my debt if I want to go to school A and choose major B with an interest rate of X and I am willing to put Y% of my (average salary for that major) towards paying it off.
+
+3.) If students have a passion for a specific major we can help them pick a school based on their preferences
+example queries:
+Rank to schools by ratio of cost of tuition to starting salary for the major I choose
+What is the school with the lowest tuition in State X for the major I choose
+
+4.) We can find the average starting salary for a school and see how the salary for a specific major compares.
+example queries:
+Rank all the majors in order of starting salary and compare them to the average salary for that school
