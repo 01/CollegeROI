@@ -23,4 +23,15 @@ Query:\
 Select Major, Unemployment_rate\
 From college-majors-emplyment-data\
 Where Major_category = \'91Engineering\'92\
-Order by Unemployment_rate}
+Order by Unemployment_rate\
+\
+Query 3: Rank the school by the average tuition per state\
+File:	tuition.csv\
+Table:	TABLE(Sector, Sectorname, UnitID, OPEID, Name_of_institution, State, 		2014-15_Tuition_and_fees, List A: High tuition and fee indicator, List E: Low tuition and fee 	indicator)\
+\
+Query:\
+Select State, avg(2014-15_Tuition_and_fees) as tuition\
+From tuition\
+Group by State\
+Order by tuition\
+}
