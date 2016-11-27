@@ -1,0 +1,173 @@
+doctype html
+html
+  head
+    title DataBase
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+    link(href='css/bootstrap.min.css', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Lato', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Montserrat', rel='stylesheet', type='text/css')
+    link(href='css/mystyles.css', rel='stylesheet')
+    // icons
+    link(href='css/font-awesome.min.css', rel='stylesheet')
+    link(href='css/bootstrap-social.css', rel='stylesheet')
+    // JS
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+  body(id="myPage",data-spy='scroll', data-target='.navbar', data-offset='500000')
+    div(class="navbar-default.navbar-fixed-top")
+      div(class="container-fluid")
+        div(class="navbar-header")
+          button(class="navbar-toggle",type='button', data-toggle='collapse', data-target='#myNavbar')
+            span(class='icon-bar')
+            span(class='icon-bar')
+            span(class='icon-bar')
+          a(class="navbar-brand",href='#myPage') Logo
+        div(class="collapse navbar-collapse", id="myNavbar")
+          ul(class="nav navbar-nav navbar-right")
+            li
+              a(href='#myPage') Top
+            li
+              a(href='#about') BTN 2
+            li
+              a(href='#tour') BTN 3
+            li
+              a(href='#contact') BTN 4
+            li(class="dropdown")
+              a(class="dropdown-toggle", data-toggle='dropdown', href='#') MORE
+                span(class="caret")
+              ul(class="dropdown-menu")
+                li
+                  a(href='#') drop down 1
+                li
+                  a(href='#') drop down 2
+                li
+                  a(href='#') drop down 3
+            li
+              a(href='#')
+                span(class="glyphicon.glyphicon-search")
+    div(id="about" ,class="container text-center")
+      h3 Container 1
+      p The three amigos
+      br
+      div(class="row")
+        div(class="col-sm-4")
+          p(class="text-center")
+            strong Andrew
+          br
+          a(href='#demo', data-toggle='collapse')
+            img.img-circle.person(src='img/andrew.jpg', alt='Sample', width='255', height='255')
+          br
+          br
+          div(id="demo", class="collapse")
+            p Loves long walks on the beach
+        div(class="col-sm-4")
+          p.text-center
+            strong Anton
+          br
+          a(href='#demo2', data-toggle='collapse')
+            img.img-circle.person(src='img/anton.jpg', alt='Sample', width='255', height='255')
+          div( id="demo2", data-toggle="collapse")
+            p Text 2
+        div(class="col-sm-4")
+          p.text-center
+            strong Jesse
+          br
+          a(href='#demo3', data-toggle='collapse')
+            img.img-circle.person(src='img/jesse.jpg', alt='Sample', width='255', height='255')
+          div(id="demo3", class="collapse")
+            p Where's Waldo?
+    // Container (TOUR Section)
+    div(id="tour", class="bg-1")
+      container
+        h3.text-center Container 2
+        p.text-center This is the second container 
+        ul.list-group
+          li.list-group-item List 1
+          li.list-group-item List 2
+          li.list-group-item List 3
+        .row.text-center
+          .row
+            p fill out the form
+            button.btn(data-toggle='modal', data-target='#myModal') Form
+      // Modal
+      div(id="myModal", class="modal.fade", role='dialog')
+        .modal-dialog
+          // Modal content
+          .modal-content
+            .modal-header
+              button.close(type='button', data-dismiss='modal') ×
+              h4 College information
+            .modal-body
+              form(role='form')
+                .form-group
+                  label(for='psw') Form 1
+                  input#psw.form-control(type='number', placeholder='answer 1')
+                .form-group
+                  label(for='usrname')  Form 2
+                  input( id="usrname", class="form-control", type='text', placeholder='answer 2')
+                button.btn.btn-block(type='submit')
+                  | Pay
+                  span.glyphicon.glyphicon-ok
+            .modal-footer
+              button.btn.btn-danger.btn-default.pull-left(type='submit', data-dismiss='modal')
+                span.glyphicon.glyphicon-remove
+                |  Cancel
+              p
+                | keep 
+                a(href='#') fornow?
+    // Container (Contact Section)
+    #contact.container
+      h3.text-center Container 3
+      p.text-center
+        em Basic Form
+      .row
+        .col-sm-6.form-group
+          input#name.form-control(name='name', placeholder='Name', type='text', required='')
+        .col-sm-6.form-group
+          input#email.form-control(name='email', placeholder='Email', type='email', required='')
+      textarea#comments.form-control(name='comments', placeholder='Comment', rows='5')
+      br
+      .row
+        .col-md-12.form-group
+          button.btn.pull-right(type='submit') Send
+    br
+    // Footer
+    footer.text-center
+      a.up-arrow(href='#myPage', data-toggle='tooltip', title='TO TOP')
+        span.glyphicon.glyphicon-chevron-up
+      br
+      br
+      p Check us out on github
+      p
+        a.btn.btn-social-icon.btn-github(href='https://github.com/01', data-toggle='tooltip', title='Andrew Khaz')
+          i.fa.fa-github
+        a.btn.btn-social-icon.btn-github(href='https://github.com/sswess', data-toggle='tooltip', title='Anton Kotenko')
+          i.fa.fa-github
+        a.btn.btn-social-icon.btn-github(href='https://github.com/', data-toggle='tooltip', title='Jesse Striveli')
+          i.fa.fa-github
+    script.
+      $(document).ready(function(){
+      // Initialize Tooltip
+      $('[data-toggle="tooltip"]').tooltip();
+      // Add smooth scrolling to all links in navbar + footer link
+      $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+      // Store hash
+      var hash = this.hash;
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+      scrollTop: $(hash).offset().top
+      }, 900, function(){
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+      });
+      } // End if
+      });
+      })
