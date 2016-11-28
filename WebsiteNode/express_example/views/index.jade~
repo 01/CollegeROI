@@ -1,3 +1,6 @@
-extends layout
+//extends layout
 
+body
+  p !{data}
+  
 

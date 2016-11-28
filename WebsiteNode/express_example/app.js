@@ -24,6 +24,12 @@ con.connect(function(err){
   console.log('Connection established1');
 });
 
+con.query("SELECT * FROM 'financial_aid' limit 100", function(err, rows, fields){
+  app.get('/index', function(req, res){
+    res.render('index', {title:"test", data:rows});
+  });
+});
+
 con.end(function(err) {
   // The connection is terminated gracefully
   // Ensures all previously enqueued queries are still
