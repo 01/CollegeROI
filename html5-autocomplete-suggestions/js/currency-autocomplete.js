@@ -13,7 +13,8 @@ var size = {
   medium: false,
   large: false
 };
-
+var thehtml=[];
+var htmlCounter = 0;
 var submitQuery;
 var finalCollegeQueryString;
 var collegeQueryString;
@@ -118,7 +119,9 @@ function submitQueryBuild(){
 
 $(function(){
 
-
+   $('#cancelState').click(function(){
+       cancelState();
+});
     $('#submit').click(function(){
        submitQueryBuild();
 });
@@ -146,10 +149,16 @@ $(function(){
    $('#stateAuto').autocomplete({
     lookup: states,
     onSelect: function (suggestion) {
-      var thehtml = '<strong>State:</strong> ' + suggestion.value + ' <br> <strong>abreviation:</strong> ' + suggestion.data;
+
+       thehtml .push('<span class="mdl-chip mdl-chip--deletable"> <span class="mdl-chip__text">' + suggestion.value 
+      +'</span> <button type="button" class="mdl-chip__action" id= "cancelState"><i class="material-icons">cancel</i></button></span>');
       stateArray.push(suggestion.data);
       console.log(stateArray);
-      $('#stateOutput').html(thehtml);
+      for (var i = 0 ; i <=htmlCounter; i++) {
+        $('#stateOutput').html(thehtml[i]);
+      }
+
+      htmlCounter++;
     }
   });
 

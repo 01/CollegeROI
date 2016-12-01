@@ -6,10 +6,14 @@
   <link rel="shortcut icon" href="http://designshack.net/favicon.ico">
   <link rel="icon" href="http://designshack.net/favicon.ico">
   <link rel="stylesheet" type="text/css" media="all" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
   <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
   <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
   <script type="text/javascript" src="js/currency-autocomplete.js"></script>
   <script type="text/javascript" src="js/addinput.js"></script>
+
 
 </head>
 <?php
@@ -131,9 +135,6 @@ $conn->close();
     </div><!-- @end #content -->
   </div><!-- @end #w -->
   <div id="w">
-    <div id="content" align="center">
-      <p>Please enter your State</p>
-      <div id="searchfield">
 <br>
       <p>Submit?</p
       <div id = "submitButton"><form><input type="button" value="submit" id="submit" ></div> 
