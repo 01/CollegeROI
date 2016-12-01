@@ -25,7 +25,7 @@ else{
 	echo "Worked";
 }
 
-$sql = "SELECT INSTNM FROM college.College_Directory Limit 100";
+$sql = "SELECT INSTNM FROM College_Directory Limit 100";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
