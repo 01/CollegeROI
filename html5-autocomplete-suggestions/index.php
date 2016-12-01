@@ -10,6 +10,7 @@
   <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
   <script type="text/javascript" src="js/currency-autocomplete.js"></script>
   <script type="text/javascript" src="js/addinput.js"></script>
+
 </head>
 <?php
 $servername = "127.0.0.1:3306";
@@ -96,11 +97,11 @@ $conn->close();
       <p>Please enter your college</p>
       
       <div id="searchfield">
-        <form><input type="text" name="currency" class="biginput" id="autocomplete"></form>
+        <form><input type="text" name="currency" class="biginput" id="collegeAuto"></form>
       </div><!-- @end #searchfield -->
       
       <div id="outputbox">
-        <p id="outputcontent">Choose a College and the results will display here.</p>
+        <p id="collegeOutput">Choose a College and the results will display here.</p>
       </div>
     </div><!-- @end #content -->
   </div><!-- @end #w -->
@@ -109,11 +110,11 @@ $conn->close();
       <p>Please enter your Major</p>
       
       <div id="searchfield">
-        <form><input type="text" name="currency" class="biginput" id="autocomplete2"></form>
+        <form><input type="text" name="currency" class="biginput" id="majorAuto"></form>
       </div><!-- @end #searchfield -->
       
       <div id="outputbox">
-        <p id="outputcontent2">Choose a Major and the results will display here.</p>
+        <p id="majorOutput">Choose a Major and the results will display here.</p>
       </div>
     </div><!-- @end #content -->
   </div><!-- @end #w -->
@@ -121,20 +122,28 @@ $conn->close();
     <div id="content" align="center">
       <p>Please enter your State</p>
       <div id="searchfield">
-        <form method="POST">
-          <div id="dynamicInput">
-            Entry 1<br><input type="text" class="biginput state-auto" name="myInputs[]">
-          </div>
-          <input type="button" value="Add another text input" onClick="addInput('dynamicInput');">
-
-
-        </form>
-
+  <form><input type="text" name="currency" class="biginput" id="stateAuto"></form>
       </div><!-- @end #searchfield -->
       
       <div id="outputbox">
-        <p id="outputcontent3">Choose a State and the results will display here.</p>
+        <p id="stateOutput">Choose a State and the results will display here.</p>
       </div>
+    </div><!-- @end #content -->
+  </div><!-- @end #w -->
+  <div id="w">
+    <div id="content" align="center">
+      <p>Please enter your State</p>
+      <div id="searchfield">
+<br>
+      <p>Submit?</p
+      <div id = "submitButton"><form><input type="button" value="submit" id="submit" ></div> 
+      
+      <p>
+         <label for = "price">Price range:</label>
+         <input type = "text" id = "price" 
+            style = "border:0; color:#b9cd6d; font-weight:bold;">
+      </p>
+      <div id = "slider-3"></div>
     </div><!-- @end #content -->
   </div><!-- @end #w -->
 
