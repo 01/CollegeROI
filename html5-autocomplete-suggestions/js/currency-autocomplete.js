@@ -16851,6 +16851,20 @@ states = [
   });
   
 });
+$(function() {
+            $( "#slider-3" ).slider({
+               range:true,
+               min: 0,
+               max: 60000,
+               values: [ 15000, 25000 ],
+               slide: function( event, ui ) {
+                  $( "#price" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+               }
+            });
+            $( "#price" ).val( "$" + $( "#slider-3" ).slider( "values", 0 ) +
+               " - $" + $( "#slider-3" ).slider( "values", 1 ) );
+         });
+         
 const stateInit = _ => {
   $('.state-auto:not([init])').autocomplete({
     lookup: states,

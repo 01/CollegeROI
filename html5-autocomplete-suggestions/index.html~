@@ -9,7 +9,16 @@
   <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
   <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
   <script type="text/javascript" src="js/currency-autocomplete.js"></script>
+
+  <!-- Slider-->
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+    <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+  <!--My JS -->
   <script type="text/javascript" src="js/addinput.js"></script>
+
+
 </head>
 <?php
 $servername = "127.0.0.1:3306";
@@ -72,6 +81,7 @@ $conn->close();
       </div>
     </div><!-- @end #content -->
   </div><!-- @end #w -->
+  
   <div id="w">
     <div id="content" align="center">
       <p>Please enter your State</p>
@@ -90,8 +100,22 @@ $conn->close();
       <div id="outputbox">
         <p id="outputcontent3">Choose a State and the results will display here.</p>
       </div>
+      <br>
+      <p>How much are you looking to spend on college?</p>
+      <p>
+         <label for = "price">Price range:</label>
+         <input type = "text" id = "price" 
+            style = "border:0; color:#b9cd6d; font-weight:bold;">
+      </p>
+      <div id = "slider-3"></div>
     </div><!-- @end #content -->
   </div><!-- @end #w -->
+
+  x
+
+
+
+
 
 </body>
 </html>
