@@ -1,6 +1,8 @@
 var stateArray = [];
+stateArray.push("n/a");
 var majorArray = [];
 var collegeArray = [];
+collegeArray.push("n/a");
 var typeOfSchool = {
   public: false,
   privateNoProfit: false,
@@ -19,11 +21,11 @@ var stateQueryString;
 var majorsQueryString
 var sizeQueryString;
 var typeOfSchoolQueryString;
-var finalQueryString = "Select * From college.College_Directory";
+var finalQueryString = "Select INSTNM From college.College_Directory";
 function createCollegeString (collegeArray){
-  if(collegeArray.length>0){
+  if(collegeArray.length>1){
       collegeQueryString = " ("
-      for (var i = 0; i <collegeArray.length-1; i++) {
+      for (var i = 1; i <collegeArray.length-1; i++) {
           collegeQueryString += ("INSTNM = '" + collegeArray[i] + "' OR ");
       }
       collegeQueryString += ("INSTNM = '" + collegeArray[i] + "')");
@@ -35,9 +37,9 @@ function createCollegeString (collegeArray){
 }
 
 function createStateString(stateArray){
-  if(stateArray.length>0){
+  if(stateArray.length>1){
       stateQueryString = " ("
-      for (var k = 0; k <stateArray.length-1; k++) {
+      for (var k = 1; k <stateArray.length-1; k++) {
           stateQueryString += ("STABBR = '" + stateArray[k] + "' OR ");
       }
       stateQueryString += ("STABBR = '" + stateArray[k] + "')");
@@ -49,15 +51,15 @@ function createStateString(stateArray){
 }
 
 function buildQueryString(submitQuery){
-  if(submitQuery.collegesString.length>0 | submitQuery.statesString.length>0)
+  if(submitQuery.collegesString.length>1 | submitQuery.statesString.length>1)
     finalQueryString+= " WHERE";
-  if(submitQuery.collegesString.length>0){
+  if(submitQuery.collegesString.length>1){
     finalQueryString+= (" " + submitQuery.collegesString);
     if(submitQuery.statesString.length>0){
       finalQueryString += (" AND "+ submitQuery.statesString)
     }
   }
-  else if (submitQuery.statesString.length>0){
+  else if (submitQuery.statesString.length>1){
     finalQueryString+=(" "+ submitQuery.statesString);
   }
   else{
@@ -98,16 +100,17 @@ function queryString(collegesString, statesString) {
   
 }*/
 
-function submit(){
+function submitQueryBuild(){
       collegeQueryString = createCollegeString(collegeArray);
       console.log(collegeQueryString);
       collegeArray = [];
       stateQueryString = createStateString(stateArray);
       console.log(stateQueryString);
       stateArray=[];
-      submitQuery = new queryString(collegeQueryString, majorsQueryString, stateQueryString, sizeQueryString, typeOfSchoolQueryString);
+      submitQuery = new queryString(collegeQueryString, stateQueryString);
       finalQueryString = buildQueryString(submitQuery);
       console.log(finalQueryString);
+      window.location.href = "result.php?sqlQuery=" + finalQueryString;
       //submitQuery = new queryString(collegeArray, majorArray, stateArray, size, typeOfSchool);
       //finalQueryString = buildQueryString(submitQuery);
 }
@@ -117,8 +120,8 @@ $(function(){
 
 
     $('#submit').click(function(){
-       submit();
-    });
+       submitQueryBuild();
+});
 
   // setup autocomplete function pulling from colleges[] array
   $('#collegeAuto').autocomplete({
