@@ -9,6 +9,7 @@
   <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
   <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
   <script type="text/javascript" src="js/currency-autocomplete.js"></script>
+  <script type="text/javascript" src="js/addinput.js"></script>
 </head>
 
 <body>
@@ -37,6 +38,26 @@
       
       <div id="outputbox">
         <p id="outputcontent2">Choose a Major and the results will display here.</p>
+      </div>
+    </div><!-- @end #content -->
+  </div><!-- @end #w -->
+  <div id="w">
+    <div id="content" align="center">
+      <p>Please enter your State</p>
+      <div id="searchfield">
+        <form method="POST">
+          <div id="dynamicInput">
+            Entry 1<br><input type="text" class="biginput state-auto" name="myInputs[]">
+          </div>
+          <input type="button" value="Add another text input" onClick="addInput('dynamicInput');">
+
+
+        </form>
+
+      </div><!-- @end #searchfield -->
+      
+      <div id="outputbox">
+        <p id="outputcontent3">Choose a State and the results will display here.</p>
       </div>
     </div><!-- @end #content -->
   </div><!-- @end #w -->
