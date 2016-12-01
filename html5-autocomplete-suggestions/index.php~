@@ -26,67 +26,40 @@ if ($conn->connect_error) {
 else{
 	echo "Worked";
 }
-if (!$conn->set_charset("utf8")) {
-    printf("Error loading character set utf8: %s\n", $conn->error);
-    exit();
+
+$sql = "SELECT INSTNM, UNITID FROM college.College_Directory";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+     echo "<table><tr><th>NAME</th><th>Name</th></tr>";
+     // output data of each row
+     while($row = $result->fetch_assoc()) {
+         echo "<tr><td>" . $row["INSTNM"]. "</td><td>";
+		 echo "<tr><td>" . $row["UNITID"]. "</td><td>";
+     }
+     echo "</table>";
 } else {
-    printf("Current character set: %s\n", $conn->character_set_name());
+     echo "0 results";
 }
 
-$sql1 = "SELECT INSTNM, UNITID FROM college.College_Directory";
-$result1 = $conn->query($sql1);
-if (!$result1) {
-    //echo "Could not successfully run query ($sql) from DB: " . mysql_error();
+if (!$result) {
+    echo "Could not successfully run query ($sql) from DB: " . mysql_error();
     exit;
 }
 
-$data1 = array();
-while($row = $result1->fetch_assoc()) 
-{ 
-     $data1[] = array (
-            'value' => $row['INSTNM'],
-            'data' => $row['UNITID'],
-        );
-} 
-$collegeList=json_encode($data1);
-
-
-$sql2 = "SELECT fullName, initial FROM college.us_states";
-$result2 = $conn->query($sql2);
-$data2 = array();
-while($row = $result2->fetch_assoc()) 
-{ 
-     $data2[] = array (
-            'value' => $row['fullName'],
-            'data' => $row['initial'],
-        );
-} 
-$stateList = json_encode($data2);
-
-$sql3 = "SELECT MAJOR, Median FROM college.majors_employment";
-$result3 = $conn->query($sql3);
-if (!$result3) {
-    //echo "Could not successfully run query ($sql) from DB: " . mysql_error();
+/*if (mysql_num_rows($result) == 0) {
+    echo "No rows found, nothing to print so am exiting";
     exit;
-}
+}*/
 
-$data3 = array();
-while($row = $result3->fetch_assoc()) 
-{ 
-     $data3[] = array (
-            'value' => $row['MAJOR'],
-            'data' => $row['Median'],
-        );
-} 
-$majorList=json_encode($data3);
+//while(($resultArray[] = mysql_fetch_assoc($result)) || array_pop($resultArray)); 
+
+//mysql_free_result($result);
 
 $conn->close();
 ?> 
 <script type="text/javascript">
-    var colleges = <?php echo $collegeList ?>;
-    var states = <?php echo $stateList ?>;
-    var majors = <?php echo $majorList ?>;
-    //JSON.parse(colleges);
+    var colleges = <?php echo json_encode($row); ?>;
 </script>
 <body>
   <div id="topbar"><a href="#">This is a toolbar</a></div>
