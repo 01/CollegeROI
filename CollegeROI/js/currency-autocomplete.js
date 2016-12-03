@@ -14,19 +14,22 @@ var size = {
   large: false
 };
 var thehtmlarray=[];
+var colleges;
+var states;
+var majors;
 var thehtml = '';
 var htmlCounter = 0;
 var submitQuery;
-var finalCollegeQueryString;
-var collegeQueryString;
-var stateQueryString;
-var majorsQueryString
-var sizeQueryString;
-var typeOfSchoolQueryString;
+var finalCollegeQueryString ="";
+var collegeQueryString="";
+var stateQueryString="";
+var majorsQueryString="";
+var sizeQueryString="";
+var typeOfSchoolQueryString="";
 var finalQueryString = "Select INSTNM From college.College_Directory";
 function createCollegeString (collegeArray){
   if(collegeArray.length>1){
-      collegeQueryString = " ("
+      collegeQueryString += " ("
       for (var i = 1; i <collegeArray.length-1; i++) {
           collegeQueryString += ("INSTNM = '" + collegeArray[i] + "' OR ");
       }
@@ -40,7 +43,7 @@ function createCollegeString (collegeArray){
 
 function createStateString(stateArray){
   if(stateArray.length>1){
-      stateQueryString = " ("
+      stateQueryString += " ("
       for (var k = 1; k <stateArray.length-1; k++) {
           stateQueryString += ("STABBR = '" + stateArray[k] + "' OR ");
       }
@@ -103,12 +106,14 @@ function queryString(collegesString, statesString) {
 }*/
 
 function submitQueryBuild(){
-      collegeQueryString = createCollegeString(collegeArray);
+      if(collegeArray.length>1)collegeQueryString = createCollegeString(collegeArray);
       console.log(collegeQueryString);
       collegeArray = [];
-      stateQueryString = createStateString(stateArray);
+      collegeArray.push("n/a");
+      if(stateArray.length>1) stateQueryString = createStateString(stateArray);
       console.log(stateQueryString);
       stateArray=[];
+      stateArray.push("n/a");
       submitQuery = new queryString(collegeQueryString, stateQueryString);
       finalQueryString = buildQueryString(submitQuery);
       console.log(finalQueryString);
@@ -140,17 +145,16 @@ $(function(){
 
   $('#majorAuto').autocomplete({
     lookup: majors,
-    onSelect: function (suggestion2) {
-      var thehtml = '<strong>Major:</strong> ' + suggestion2.value + ' <br> <strong>Salary:</strong> ' + suggestion2.data;
+    onSelect: function (suggestion) {
+      var thehtml = '<strong>Major:</strong> ' + suggestion.value + ' <br> <strong>Salary:</strong> ' + suggestion.data;
       $('#majorOutput').html(thehtml);
-      majorArray.push(suggestion2.value);
+      majorArray.push(suggestion.value);
       console.log(majorArray);
     }
   });
    $('#stateAuto').autocomplete({
     lookup: states,
     onSelect: function (suggestion) {
-
        thehtmlarray.push('<span class="mdl-chip mdl-chip--deletable"> <span class="mdl-chip__text">' + suggestion.value 
       +'</span> <button type="button" class="mdl-chip__action" id= "cancelState"><i class="material-icons">cancel</i></button></span>');
       stateArray.push(suggestion.data);

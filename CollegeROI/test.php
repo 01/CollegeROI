@@ -22,7 +22,7 @@ if(!$localtest){
 $servername = "localhost";
 $username = "id279319_admin";
 $password = "databases2016";
-$dbname = "id279319_collegeroi";
+//$dbname = "mid279319_admin";
 }
 else{
   $servername = "localhost:3306";
@@ -31,7 +31,7 @@ else{
 }
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password);
 // Check connection
 if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
@@ -41,73 +41,63 @@ else{
 }
 if (!$conn->set_charset("utf8")) {
     printf("Error loading character set utf8: %s\n", $conn->error);
-    exit();
+  
 } else {
     printf("Current character set: %s\n", $conn->character_set_name());
 }
 
-$sql1 = "SELECT INSTNM, UNITID FROM College_Directory";
-
+/*$sql1 = "SELECT INSTNM, UNITID FROM College_Directory";
 $result1 = $conn->query($sql1);
 if (!$result1) {
-   echo printf("Could not successfully run query ($sql1) from DB: %s", $dbname);
+    echo printf("Could not successfully run query (%s) from DB:", $sql1);
    
 }
-else{
-$data1 = array();
 
+$data1 = array();
 while($row = $result1->fetch_assoc()) 
 { 
-    $data1[] = array (
+     $data1[] = array (
             'value' => $row['INSTNM'],
             'data' => $row['UNITID'],
         );
+echo "row here";
 } 
-
+echo "workedigsd";
 $collegeList=json_encode($data1);
-}
 
-
-$sql2 = "SELECT * FROM us_states";
+*/
+$sql2 = "SELECT fullName, initial FROM us_states";
 $result2 = $conn->query($sql2);
-
-if(!$result2){
-echo printf("Fuck didnt work");
-}
-else{
 $data2 = array();
-
 while($row = $result2->fetch_assoc()) 
 { 
      $data2[] = array (
             'value' => $row['fullName'],
             'data' => $row['initial'],
+            
         );
+echo "Row here";
 } 
+echo "roewhhss";
 $stateList = json_encode($data2);
-}
-echo "Makes it here.....";
-$sql3  = "SELECT * FROM majors_employment";
 
-
+$sql3 = "SELECT MAJOR, Median FROM majors_employment";
 $result3 = $conn->query($sql3);
-
 if (!$result3) {
-     echo printf("Could not successfully run query ($sql3) from DB: %s", $dbname);
+    echo "Could not successfully run query ($sql) from DB: " . mysql_error();
+  //  exit;
 }
-else{
+
 $data3 = array();
 while($row = $result3->fetch_assoc()) 
 { 
      $data3[] = array (
-            'value' => $row['Major'],
+            'value' => $row['MAJOR'],
             'data' => $row['Median'],
         );
-
 } 
 $majorList=json_encode($data3);
-}
-
+printf("Makes it here");
 $conn->close();
 ?> 
 <script type="text/javascript">
