@@ -5,7 +5,41 @@
     <link href='css/rotating-card.css' rel='stylesheet' />
 
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
 <style>
+        body{
+            margin-top: 100px;
+        }
+        .navbar-default .navbar-nav > li > a{
+            padding: 10px 10px;
+            margin: 5px 0;
+        }
+
+        .navbar-default{
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-color: transparent;
+            box-shadow: 0 0px 13px rgba(0,0,0,.2);
+        }
+        .btn-info,
+        .btn-info:hover,
+        .btn-info:focus{
+            color: #FFF !important;
+            background-color: #00bbff !important;
+            border-color: #00bbff !important;
+        }
+
+        .btn-info{
+            opacity: .8;
+            transition: all 0.1s;
+            -webkit-transition: all 0.1s;
+        }
+        .btn-info:hover,
+        .btn-info:focus{
+            opacity: 1;
+        }
+  
+
 #googleMap {
     width: 100%; /* Span the entire width of the screen */
     height: 400px; /* Set the height to 400 pixels */
@@ -18,11 +52,84 @@
 
 </head>
 <body>
+<div class="col-sm-10 col-sm-offset-1">
+ <div class="row">
+        <h1 class="title">
+            This is our awesome team
+            <br>
+            <small>Present your team in an interesting way</small>
+        </h1>
+        
+         <div class="col-md-4 col-sm-8">
+             <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                       
+                        <div class="content">
+                            <div class="main">
+                                <h3 class="name">John Marvel</h3>
+                                <p class="profession">CEO</p>
+                                <p class="text-center">"I'm the new Sinatra, and since I made it here I can make it anywhere, yeah, they love me everywhere"</p>
+                            </div>
+                            <br><br>  <br><br>  <br><br>  <br><br>  <br><br>  <br><br>  <br><br>  <br><br>
+                            <div class="footer">
+                                <button class="btn btn-simple" onclick="rotateCard(this)">
+                                    <i class="fa fa-mail-forward"></i> Manual Rotation
+                                </button>
+                            </div>
+                        </div>
+                    </div> <!-- end front panel -->
+                    <div class="back">
+                        <div class="header">
+                            <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h4 class="text-center">Job Description</h4>
+                                <p class="text-center">Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p>
 
+                                <div class="stats-container">
+                                    <div class="stats">
+                                        <h4>235</h4>
+                                        <p>
+                                            Followers
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4>114</h4>
+                                        <p>
+                                            Following
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4>35</h4>
+                                        <p>
+                                            Projects
+                                        </p>
+                                    </div>
+                                </div>
 
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <div class="social-links text-center">
+                                <a href="http://creative-tim.com" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
+                                <a href="http://creative-tim.com" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
+                                <a href="http://creative-tim.com" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
+                            </div>
+                        </div>
+                    </div> <!-- end back panel -->
+                </div> <!-- end card -->
+            </div> <!-- end card-container -->
+        </div> <!-- end col sm 3 -->
+<!--         <div class="col-sm-1"></div> -->
+        </div>
+        </div> 
+       
+  <!-- end row -->
+<!--</div>
 <div class="container">
     <div class="row">
-        
              <div class="card-container manual-flip">
                 <div class="card">
                     <div class="front">
@@ -43,7 +150,7 @@
                                 </button>
                             </div>
                         </div>
-                    </div> <!-- end front panel -->
+                    </div> 
                     <div class="back">
                         <div class="header">
                                 <ul class="nav nav-tabs">
@@ -140,11 +247,13 @@
                                 <a href="http://www.rutgers.edu/"> Rutgers Website </a>
                             </div>
                         </div>
-                    </div> <!-- end back panel -->
-                </div> <!-- end card -->
-            </div> <!-- end card-container -->
+                    </div> 
+                </div> 
+            </div>
+           
         
 </div>
+-
 <script src="http://maps.googleapis.com/maps/api/js"></script>
 <script>
 var myCenter = new google.maps.LatLng(40.5015, -74.4471);
@@ -199,5 +308,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
   ga('send', 'pageview');
 
 </script>
+-->
 </body>
 </html>

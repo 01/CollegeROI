@@ -26,7 +26,7 @@ var stateQueryString="";
 var majorsQueryString="";
 var sizeQueryString="";
 var typeOfSchoolQueryString="";
-var finalQueryString = "Select INSTNM From college.College_Directory";
+var finalQueryString = "Select * From College_Directory";
 function createCollegeString (collegeArray){
   if(collegeArray.length>1){
       collegeQueryString += " ("
@@ -83,7 +83,7 @@ function queryString(collegesString, statesString) {
 }
 
 /*function buildQueryString(submitQuery){
-    finalCollegeQueryString = "Select * From college.College_Directory";
+    finalCollegeQueryString = "Select * From College_Directory";
     if(submitQuery.colleges.length>0 | submitQuery.states.length>0 |(submitQuery.small|submitQuery.medium|submitQuery.large)|
       (submitQuery.public|submitQuery.privateNoProfit|submitQuery.privateProfit)){
         finalCollegeQueryString += " WHERE";

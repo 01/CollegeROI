@@ -17,7 +17,7 @@
 
 </head>
 <?php
-$localtest = false;
+$localtest = true;
 if(!$localtest){
 $servername = "localhost";
 $username = "id279319_admin";
@@ -28,11 +28,16 @@ else{
   $servername = "localhost:3306";
   $username = "testuser";
   $password = "password";
+  $dbname = "college";
 }
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
+if($localtest){
+  $conn = new mysqli($servername, $username, $password, $dbname);
+}
+else{
+  $conn = new mysqli($servername, $username, $password, $dbname);
+}// Check connection
 if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
 }
