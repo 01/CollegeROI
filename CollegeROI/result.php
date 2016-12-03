@@ -66,11 +66,13 @@ else{
             }
             if ($result->num_rows > 0) {
     // output data of each row
+                
           while($row = $result->fetch_assoc()) {
                 //echo "id: " . $row["INSTNM"]."<br>";
             $collegeName = $row["INSTNM"];
             $collegeCity = $row["CITY"];
             $collegeState = $row["STABBR"];
+
               echo <<< EOT
               <div class="col-md-4 col-sm-8">
              <div class="card-container">
@@ -143,6 +145,7 @@ EOT;
 } else {
     echo "0 results";
 }
+
            //echo $result;
 
            //echo 'Made it here';
