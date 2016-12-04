@@ -1,0 +1,104 @@
+<html lang="en" class="gr__collegescorecard_ed_gov"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script src="js/picc.js"></script>
+</head>
+
+  <body data-env="master" data-gr-c-s-loaded="true" class="">
+    
+
+
+    
+
+    <main>
+      <form id="search-form" is="search-form" autocomplete="false" action="/search/" method="GET">
+
+  <div class="toggles">
+
+    <div class="container">
+
+      <aria-accordion id="filters" class="toggle-accordion" aria-expanded="true">
+
+        <div class="toggle-control">
+          <h1 class="search_category">
+            <button type="button" aria-expanded="true" aria-controls="filter-content" tabindex="0">
+              <i class="fa fa-filter"></i>Filter Results<i class="fa fa-chevron-down"></i>
+            </button>
+          </h1>
+        </div>
+
+
+        <div id="filter-content" aria-hidden="false " class="toggle-content">
+
+          <fieldset>
+  <legend>Filter Results</legend>
+
+  <div id="filters-content">
+
+    <div class="filter_section">
+      <h2 aria-describedby="tip-avg-cost-year">Average Annual Cost
+        <span class="tooltip-target">
+          <i class="fa fa-info-circle"></i>
+        </span>
+      </h2>
+      <picc-slider format="$" average="16190" max="40000" step="1000" role="slider" aria-valuemin="7000" aria-valuemax="40000" aria-valuenow="7000">
+        <input type="hidden" name="avg_net_price">
+      <div class="picc-slider-range" style="left: 0%; right: 0%;"></div><div class="picc-slider-average" style="left: 40.48%;"><span class="picc-slider-label">$16.2K</span></div><div class="picc-slider-handle picc-slider-handle_min" tabindex="0" style="left: 0%;"><span class="picc-slider-label">$0</span></div><div class="picc-slider-handle picc-slider-handle_max" tabindex="0" style="left: 100%;"><span class="picc-slider-label">$40K</span></div><div class="picc-slider-range" style="left: 17.5%; right: 0%;"></div><div class="picc-slider-average" style="left: 40.48%;"><span class="picc-slider-label">$16.2K</span></div><div class="picc-slider-handle picc-slider-handle_min" tabindex="0" style="left: 17.5%;"><span class="picc-slider-label">$7K</span></div><div class="picc-slider-handle picc-slider-handle_max" tabindex="0" style="left: 100%;"><span class="picc-slider-label">$40K</span></div></picc-slider>
+    </div>
+
+
+    <div class="filter_section">
+      <h2 aria-describedby="tip-graduation-rate">Graduation Rate
+        <span class="tooltip-target">
+          <i class="fa fa-info-circle"></i>
+        </span>
+      </h2>
+      <picc-slider format="%" step=".01" max="1" average="0.42316574" role="slider" aria-valuemin="0" aria-valuemax="1">
+        <input type="hidden" name="completion_rate">
+      <div class="picc-slider-range" style="left: 0%; right: 0%;"></div><div class="picc-slider-average" style="left: 42.32%;"><span class="picc-slider-label">42%</span></div><div class="picc-slider-handle picc-slider-handle_min" tabindex="0" style="left: 0%;"><span class="picc-slider-label">0%</span></div><div class="picc-slider-handle picc-slider-handle_max" tabindex="0" style="left: 100%;"><span class="picc-slider-label">100%</span></div><div class="picc-slider-range" style="left: 0%; right: 0%;"></div><div class="picc-slider-average" style="left: 42.32%;"><span class="picc-slider-label">42%</span></div><div class="picc-slider-handle picc-slider-handle_min" tabindex="0" style="left: 0%;"><span class="picc-slider-label">0%</span></div><div class="picc-slider-handle picc-slider-handle_max" tabindex="0" style="left: 100%;"><span class="picc-slider-label">100%</span></div></picc-slider>
+    </div>
+
+    <div class="filter_section">
+      <h2 aria-describedby="tip-avg-salary">Salary After Attending
+        <span class="tooltip-target">
+          <i class="fa fa-info-circle"></i>
+        </span>
+      </h2>
+      <picc-slider format="$" average="33400" max="100000" step="1000" role="slider" aria-valuemin="0" aria-valuemax="100000">
+        <input type="hidden" name="median_earnings">
+      <div class="picc-slider-range" style="left: 0%; right: 0%;"></div><div class="picc-slider-average" style="left: 33.4%;"><span class="picc-slider-label">$33.4K</span></div><div class="picc-slider-handle picc-slider-handle_min" tabindex="0" style="left: 0%;"><span class="picc-slider-label">$0</span></div><div class="picc-slider-handle picc-slider-handle_max" tabindex="0" style="left: 100%;"><span class="picc-slider-label">$100K</span></div><div class="picc-slider-range" style="left: 0%; right: 0%;"></div><div class="picc-slider-average" style="left: 33.4%;"><span class="picc-slider-label">$33.4K</span></div><div class="picc-slider-handle picc-slider-handle_min" tabindex="0" style="left: 0%;"><span class="picc-slider-label">$0</span></div><div class="picc-slider-handle picc-slider-handle_max" tabindex="0" style="left: 100%;"><span class="picc-slider-label">$100K</span></div></picc-slider>
+    </div>
+
+    <div class="filter_section">
+      <h2 aria-describedby="tip-repayment-rate">Monthly Student Loan Payment
+        <span class="tooltip-target">
+          <i class="fa fa-info-circle"></i>
+        </span>
+      </h2>
+      <picc-slider format="$" max="550" step="50" role="slider" aria-valuemin="0" aria-valuemax="500" aria-valuenow="0">
+        <input type="hidden" name="monthly_payments">
+      <div class="picc-slider-range" style="left: 0%; right: 9.09%;"></div><div class="picc-slider-average" style="display: none;"><span class="picc-slider-label">$NaN</span></div><div class="picc-slider-handle picc-slider-handle_min" tabindex="0" style="left: 0%;"><span class="picc-slider-label">$0</span></div><div class="picc-slider-handle picc-slider-handle_max" tabindex="0" style="left: 90.91%;"><span class="picc-slider-label">$500</span></div></picc-slider>
+    </div>
+
+  </div>
+
+</fieldset>
+
+
+        </div>
+
+        <input type="submit" value="Submit" class="sr-only" tabindex="-1">
+
+      </aria-accordion>
+    </div>
+
+  </div>
+
+  <!-- Search results -->
+</form>
+    </main>
+
+</body></html>

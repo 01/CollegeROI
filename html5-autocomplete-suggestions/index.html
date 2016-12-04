@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <title>Input Autocomplete Suggestions Demo</title>
+  <link rel="shortcut icon" href="http://designshack.net/favicon.ico">
+  <link rel="icon" href="http://designshack.net/favicon.ico">
+  <link rel="stylesheet" type="text/css" media="all" href="style.css">
+      <link href = "https://code.jquery.com/ui/1.10.2/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+  <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+  <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
+  <script type="text/javascript" src="js/currency-autocomplete.js"></script>
+  <script type="text/javascript" src="js/addinput.js"></script>
+  <script type="text/javascript" src="js/slider.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+</head>
+<body>
+  <div id="topbar"><a href="#">This is a toolbar</a></div>
+  <div id="w">
+  <h1>Form 1</h1>
+ 
+    
+
+    <div id="content" align="center">
+<form>
+  <div class="form-group">
+    <p>
+          <label for = "price2">admission rate</label>
+          <input type = "text" id = "price2" style = "border:0; color:#b9cd6d; font-weight:bold;">
+          </p>
+          <div id = "slider-2"></div>
+      <br>
+      <p>
+             <label for = "price3">Price range:</label>
+             <input type = "text" id = "price3" style = "border:0; color:#b9cd6d; font-weight:bold;">
+          </p>
+          <div id = "slider-3"></div>
+      <br>
+  </div>
+
+  <div class = "form-group">
+    <legend>Please enter your college(s)</legend> 
+      <div>
+          <form><input type="text" class="biginput college-auto form-control" name="myInputs1[]"></form>
+      </div>
+</div>
+  <fieldset class="form-group">
+    <legend>How Big do you want your school to be?</legend>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios1" id="optionsRadios11" value="option1" checked>
+        Small School < 2000 people
+      </label>
+    </div>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios1" id="optionsRadios22" value="option2">
+        Medium School 2000-15,000 people
+      </label>
+    </div>
+    <div class="form-check disabled">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios1" id="optionsRadios33" value="option3">
+        Large School > 15,000 people
+      </label>
+    </div>
+  </fieldset>
+   <div class="form-group">
+    <legend>I want to go to:</legend>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+        A public school
+      </label>
+    </div>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+        A private not for profit
+      </label>
+    </div>
+    <div class="form-check disabled">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3">
+        A private for profit
+      </label>
+    </div>
+  </div>
+<div class = "form-group">
+    <legend>Please enter your State</legend>
+      <div>
+        <form>
+          <input type="text" class="biginput state-auto form-control" name="myInputs[]">
+        </form>
+
+      </div><!-- @end #searchfield -->
+</div>
+  <div class="form-group">
+    <legend>Choose a Region that you want to go to school in</legend>
+
+                        <div class="checkbox">
+                            <label>
+                                <fieldset class="form-inline">
+                                    <input type="checkbox"/>
+                                    Region 1
+                                 </fieldset>   
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <fieldset class="form-inline">
+                                    <input type="checkbox"/>
+                                    Region 2 
+                                </fieldset>
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <fieldset class="form-inline">
+                                    <input type="checkbox"/>
+                                    Region 3
+                                 </fieldset>   
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <fieldset class="form-inline">
+                                    <input type="checkbox"/>
+                                    Region 4 
+                                </fieldset>
+                            </label>
+                        </div> 
+                        <div class="checkbox">
+                            <label>
+                                <fieldset class="form-inline">
+                                    <input type="checkbox"/>
+                                    Region 5
+                                 </fieldset>   
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <fieldset class="form-inline">
+                                    <input type="checkbox"/>
+                                    Region 6 
+                                </fieldset>
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <fieldset class="form-inline">
+                                    <input type="checkbox"/>
+                                    Region 6
+                                 </fieldset>   
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <fieldset class="form-inline">
+                                    <input type="checkbox"/>
+                                    Region 7 
+                                </fieldset>
+                            </label>
+                        </div>
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    </div><!-- @end #content -->
+
+
+
+  </div><!-- @end #w -->
+
+  <div id="w">
+  <h1>Form 2</h1>
+    <div id="content" align="center">
+      <form>
+        <div class = "form-group">
+        <legend>Please enter your Major</legend>
+        <div>
+          <form><input type="text" name="currency" class="biginput form-control" id="autocomplete2"></form>
+        </div>
+        </div>
+        
+        <div id="outputbox">
+          <p id="outputcontent2">Choose a Major and the results will display here.</p>
+        </div>
+        <div class = "form-group">
+              <legend>Please enter your college(s)</legend> 
+                <div>
+                    <form><input type="text" class="biginput college-auto form-control" name="myInputs1[]"></form>
+                </div>
+        </div>
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    </div><!-- @end #content -->
+
+
+
+  </div>
+    <div id="w">
+  <h1>Form 3</h1>
+ 
+    
+
+    <div id="content" align="center">
+<form>
+        <div class = "form-group">
+        <legend>Please enter your Major(s)</legend>
+        <div>
+          <form><input type="text" name="currency" class="biginput major-auto form-control" id="myInputs2[]"></form>
+        </div>
+        </div>
+        
+        <div id="outputbox">
+          <p id="outputcontent2">Which college would you like to compare them at?</p>
+        </div>
+        <div class = "form-group">
+              <legend>Please enter your college(s)</legend> 
+                <div>
+                    <form><input type="text" class="biginput college-auto form-control" name="myInputs1[]"></form>
+                </div>
+        </div>
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    </div><!-- @end #content -->
+
+
+
+  </div>
+
+
+
+</body>
+</html>
