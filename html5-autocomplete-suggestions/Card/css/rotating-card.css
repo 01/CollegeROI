@@ -1,5 +1,5 @@
 body {
-	margin-top: 25px;
+	margin-top: 60px;
 	font-size: 14px;
 	font-family: "Helvetica Nueue",Arial,Verdana,sans-serif;
 	background-color: #E5E9ED;
@@ -11,11 +11,11 @@ body {
 }
 /* entire container, keeps perspective */
 .card-container {
-	  -webkit-perspective: 200px;
-   -moz-perspective: 200px;
-     -o-perspective: 200px;
-        perspective: 200px;
-        margin-bottom: 60px;
+	  -webkit-perspective: 800px;
+   -moz-perspective: 800px;
+     -o-perspective: 800px;
+        perspective: 800px;
+        margin-bottom: 30px;
 }
 /* flip the pane when hovered */
 .card-container:not(.manual-flip):hover .card,
@@ -156,7 +156,7 @@ body {
     margin: 0 7px;
 }
 .card .footer .btn-simple{
-    margin-top: -95px;
+    margin-top: -145px;
 }
 .card .header {
     padding: 15px 20px;

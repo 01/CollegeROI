@@ -1,27 +1,68 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en-US">
 <head>
-    <link href='css/bootstrap.css' rel='stylesheet' />
-    <link href='css/rotating-card.css' rel='stylesheet' />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <title>Input Autocomplete Suggestions Demo</title>
+  <link rel="shortcut icon" href="http://designshack.net/favicon.ico">
+  <link rel="icon" href="http://designshack.net/favicon.ico">
+  <link rel="stylesheet" type="text/css" media="all" href="style.css">
+  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
+  <script type="text/javascript" src="js/currency-autocomplete.js"></script>
 
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-<style>
-#googleMap {
-    width: 100%; /* Span the entire width of the screen */
-    height: 400px; /* Set the height to 400 pixels */
-}
-</style>
+  <!-- Slider-->
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+  <!--My JS -->
+  <script type="text/javascript" src="js/addinput.js"></script>
+    <script type="text/javascript" src="js/slider.js"></script>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">  
+  <!--Stuff for card-->
+      <link href='Card/css/rotating-card.css' rel='stylesheet' />
+          <link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 
 
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="css/mystyles.css" rel="stylesheet">
 
-<!-- Add Google Maps -->
+  <!-- icons -->
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap-social.css" rel="stylesheet">
+
+
+  <!--JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 
 </head>
 <body>
+  <!--HEADER-->
+  <div id="topbar"><a href="#">This is a toolbar</a></div>
+  
+  <!--INNER DIV -->
+  <div id="w">
+    <div id="content" align="center">
+          <h1>Working on card</h1>      
+
+           <p>How much are you looking to spend on college?</p>
+          <p>
+             <label for = "price">Price range:</label>
+             <input type = "text" id = "price" 
+                style = "border:0; color:#b9cd6d; font-weight:bold;">
+          </p>
+          <div id = "slider-3"></div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <p>Begin card</p>
 
 
-<div class="container">
-    <div class="row">
+
         
              <div class="card-container manual-flip">
                 <div class="card">
@@ -144,10 +185,22 @@
                 </div> <!-- end card -->
             </div> <!-- end card-container -->
         
-</div>
-</div>
-</div>
-<script src="http://maps.googleapis.com/maps/api/js"></script>
+          </div>
+
+
+
+          <br>
+
+
+      <p>end inner div</p>
+    </div><!-- @end #content -->
+    <p>end outter div</p>
+
+  </div><!-- @end #w -->
+  
+
+
+  <script src="http://maps.googleapis.com/maps/api/js"></script>
 <script>
 var myCenter = new google.maps.LatLng(40.5015, -74.4471);
 
@@ -201,5 +254,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
   ga('send', 'pageview');
 
 </script>
+
+
+
+
+
+
 </body>
 </html>
