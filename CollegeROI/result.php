@@ -17,20 +17,21 @@
 </head>
 
  <?php
-        $localtest = true;
-        $debug = false;
-if(!$localtest){
-$servername = "localhost";
-$username = "id279319_admin";
-$password = "databases2016";
-$dbname = "id279319_collegeroi";
-}
-else{
-  $servername = "localhost:3306";
-  $username = "testuser";
-  $password = "password";
-  $dbname = "college";
-}
+ 
+  $localtest = true;
+  $debug = false;
+  if(!$localtest){
+    $servername = "localhost";
+    $username = "id279319_admin";
+    $password = "databases2016";
+    $dbname = "id279319_collegeroi";
+  }
+  else{
+    $servername = "localhost:3306";
+    $username = "testuser";
+    $password = "password";
+    $dbname = "college";
+  }
 
           // Create connection
           $conn = new mysqli($servername, $username, $password, $dbname);
