@@ -1,0 +1,10 @@
+sector,sector_name
+1,"4-year, public"
+2,"4-year, private not-for-profit"
+3,"4-year, private for-profit"
+4,"2-year, public"
+5,"2-year, private not-for-profit"
+6,"2-year, private for-profit"
+7,"Less than 2-year, public"
+8,"Less than 2-year, private not-for-profit"
+9,"Less than 2-year, private for-profit"

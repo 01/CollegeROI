@@ -1,3 +1,4 @@
+
 var stateArray = [];
 stateArray.push("n/a");
 var majorArray = [];
@@ -26,7 +27,7 @@ var stateQueryString="";
 var majorsQueryString="";
 var sizeQueryString="";
 var typeOfSchoolQueryString="";
-var finalQueryString = "Select * From College_Directory";
+var finalQueryString = "Select * From Main_Table";
 function createCollegeString (collegeArray){
   if(collegeArray.length>1){
       collegeQueryString += " ("
@@ -126,7 +127,7 @@ function submitQueryBuild(){
 $(function(){
 
    $('#cancelState').click(function(){
-       cancelState();
+       $("span:has(junk)").remove();
 });
     $('#submit').click(function(){
        submitQueryBuild();
@@ -136,8 +137,9 @@ $(function(){
   $('#collegeAuto').autocomplete({
     lookup: colleges,
     onSelect: function (suggestion) {
-      var thehtml = '<strong>University:</strong>' + suggestion.value + ' <br> <strong>UNID:</strong> ' + suggestion.data;
-      $('#collegeOutput').html(thehtml);
+      var thehtml = '<span class="mdl-chip mdl-chip--deletable"> <span class="mdl-chip__text">' + suggestion.value 
+      +'</span> <button type="button" class="mdl-chip__action" id= "cancelState"><i class="material-icons">cancel</i></button></span>';
+      $('#collegeOutputbox').append(thehtml);
       collegeArray.push(suggestion.value);
       console.log(collegeArray);
     }
@@ -146,8 +148,9 @@ $(function(){
   $('#majorAuto').autocomplete({
     lookup: majors,
     onSelect: function (suggestion) {
-      var thehtml = '<strong>Major:</strong> ' + suggestion.value + ' <br> <strong>Salary:</strong> ' + suggestion.data;
-      $('#majorOutput').html(thehtml);
+      var thehtml = '<span class="mdl-chip mdl-chip--deletable"> <span class="mdl-chip__text">' + suggestion.value 
+      +'</span> <button type="button" class="mdl-chip__action" id= "cancelState"><i class="material-icons">cancel</i></button></span>';
+      $('#majorOutputbox').append(thehtml);
       majorArray.push(suggestion.value);
       console.log(majorArray);
     }
@@ -155,14 +158,16 @@ $(function(){
    $('#stateAuto').autocomplete({
     lookup: states,
     onSelect: function (suggestion) {
-       thehtmlarray.push('<span class="mdl-chip mdl-chip--deletable"> <span class="mdl-chip__text">' + suggestion.value 
+       thehtmlarray.push('<span class="mdl-chip mdl-chip--deletable" id ="' + suggestion.value + '"> <span class="mdl-chip__text">' + suggestion.value 
       +'</span> <button type="button" class="mdl-chip__action" id= "cancelState"><i class="material-icons">cancel</i></button></span>');
       stateArray.push(suggestion.data);
       console.log(stateArray);
+       $('#stateOutputbox').append('<span class="mdl-chip mdl-chip--deletable"> <span class="mdl-chip__text">' + suggestion.value 
+      +'</span> <a href="#" class="mdl-chip__action"><i class="material-icons">cancel</i></button></span>');
       thehtml = '';
-      for (var i = 0 ; i <=htmlCounter; i++) {
+      /*for (var i = 0 ; i <=htmlCounter; i++) {
         $('#stateOutput').html(thehtml+=thehtmlarray[i]);
-      }
+      }*/
 
       htmlCounter++;
     }
@@ -172,7 +177,7 @@ $(function(){
   });
 /*
  $(function(){
-            $( "#slider-3" ).slider({
+            $( "#slider-3" ).bootstrapSlider({
               range:true,
                min: 0,
                max: 500,
@@ -181,7 +186,7 @@ $(function(){
                   $( "#price" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
                }
             });
-            $( "#price" ).val( "$" + $( "#slider-3" ).slider( "values", 0 ) +
-             " - $" + $( "#slider-3" ).slider( "values", 1 ) );        });
-      */   
-
+            $( "#price" ).val( "$" + $( "#slider-3" ).bootstrapSlider( "values", 0 ) +
+             " - $" + $( "#slider-3" ).bootstrapSlider( "values", 1 ) );        });
+      
+*/

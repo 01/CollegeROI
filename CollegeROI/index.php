@@ -8,11 +8,18 @@
   <link rel="stylesheet" type="text/css" media="all" href="style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+  <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
   <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
   <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
   <script type="text/javascript" src="js/currency-autocomplete.js"></script>
   <script type="text/javascript" src="js/addinput.js"></script>
+
+      
+      
+      
 
 
 </head>
@@ -42,7 +49,7 @@ if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
 }
 else{
-	echo "Worked";
+  echo "Worked";
 }
 if (!$conn->set_charset("utf8")) {
     printf("Error loading character set utf8: %s\n", $conn->error);
@@ -51,7 +58,7 @@ if (!$conn->set_charset("utf8")) {
     printf("Current character set: %s\n", $conn->character_set_name());
 }
 
-$sql1 = "SELECT INSTNM, UNITID FROM College_Directory";
+$sql1 = "SELECT INSTNM, UNITID FROM Main_Table";
 
 $result1 = $conn->query($sql1);
 if (!$result1) {
@@ -92,7 +99,7 @@ while($row = $result2->fetch_assoc())
 $stateList = json_encode($data2);
 }
 echo "Makes it here.....";
-$sql3  = "SELECT * FROM majors_employment";
+$sql3  = "SELECT * FROM major_salary";
 
 
 $result3 = $conn->query($sql3);
@@ -132,8 +139,8 @@ $conn->close();
         <form><input type="text" name="currency" class="biginput" id="collegeAuto"></form>
       </div><!-- @end #searchfield -->
       
-      <div id="outputbox">
-        <p id="collegeOutput">Choose a College and the results will display here.</p>
+      <div id="collegeOutputbox">
+     
       </div>
     </div><!-- @end #content -->
   </div><!-- @end #w -->
@@ -145,8 +152,7 @@ $conn->close();
         <form><input type="text" name="currency" class="biginput" id="majorAuto"></form>
       </div><!-- @end #searchfield -->
       
-      <div id="outputbox">
-        <p id="majorOutput">Choose a Major and the results will display here.</p>
+      <div id="majorOutputbox">
       </div>
     </div><!-- @end #content -->
   </div><!-- @end #w -->
@@ -157,8 +163,8 @@ $conn->close();
   <form><input type="text" name="currency" class="biginput" id="stateAuto"></form>
       </div><!-- @end #searchfield -->
       
-      <div id="outputbox">
-        <p id="stateOutput">Choose a State and the results will display here.</p>
+      <div id="stateOutputbox">
+
       </div>
     </div><!-- @end #content -->
   </div><!-- @end #w -->
@@ -169,8 +175,7 @@ $conn->close();
       
       <p>
          <label for = "price">Price range:</label>
-         <input type = "text" id = "price" 
-            style = "border:0; color:#b9cd6d; font-weight:bold;">
+         <input type = "text" id = "price" style = "border:0; color:#b9cd6d; font-weight:bold;">
       </p>
       <div id = "slider-3"></div>
     </div><!-- @end #content -->
