@@ -6,12 +6,13 @@ var majors;
 /**************Initization of Form 1 Arrays **************************************/
 var state1Array = [];
 state1Array.push("n/a");
-var major1Array = [];
-major1Array.push("n/a");
 var college1Array = [];
 college1Array.push("n/a");
 /********************************************************************************/
 
+/**************Initilization of Form 2 Arrays **********************************/
+var major2Array = [];
+major2Array.push("n/a");
 
 
 
@@ -132,9 +133,8 @@ $(function(){
   $('#collegeAuto1').autocomplete({
     lookup: colleges,
     onSelect: function (suggestion) {
-      var thehtml = '<span class="mdl-chip mdl-chip--deletable"> <span class="mdl-chip__text">' + suggestion.value 
-      +'</span> <button type="button" class="mdl-chip__action" id= "cancelState"><i class="material-icons">cancel</i></button></span>';
-      $('#college1').append(thehtml);
+      
+      $('#college1').append('<div class="chip"> <div class="chip-media"><img src="http://lorempixel.com/100/100/people/9/"></div> <div class="chip-label">'+suggestion.value+'</div> </div>');
       college1Array.push(suggestion.value);
       console.log(college1Array);
     }
@@ -150,6 +150,8 @@ $(function(){
     }
   });
 
+
+/*****************Form 2 Functions **********************************************/
   $('#majorAuto2').autocomplete({
     lookup: majors,
     onSelect: function (suggestion) {

@@ -60,9 +60,9 @@ if (!$conn->set_charset("utf8")) {
     printf("Error loading character set utf8: %s\n", $conn->error);
     exit();
 } else {
-    printf("Current character set: %s\n", $conn->character_set_name());
+    //printf("Current character set: %s\n", $conn->character_set_name());
 }
-$sql1 = "SELECT INSTNM, UNITID FROM Main_Table";
+$sql1 = "SELECT INSTNM FROM Main_Table";
 $result1 = $conn->query($sql1);
 if (!$result1) {
    echo printf("Could not successfully run query ($sql1) from DB: %s", $dbname);
@@ -74,7 +74,6 @@ while($row = $result1->fetch_assoc())
 { 
     $data1[] = array (
             'value' => $row['INSTNM'],
-            'data' => $row['UNITID'],
         );
 } 
 $collegeList=json_encode($data1);
