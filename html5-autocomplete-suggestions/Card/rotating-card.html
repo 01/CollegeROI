@@ -20,9 +20,8 @@
         </h1>
         <!-- Card go here-->
         <div class="col-sm-10 col-sm-offset-1">
-                    <!-- Begin Card-->
-        <!--Begin Card -->
-         <!--Begin Card -->
+
+                  <!--Begin Card need the line under in the main result taken out here for neatness-->
           <div class="col-md-4 col-sm-6">
              <div class="card-container manual-flip">
                 <div class="card">
@@ -31,10 +30,10 @@
                             <div id="googleMap"></div>
                         </div>
                         <div class="content">
-                            <div class="main">
-                                <h3 class="name">Thank you for choosing</h3>
-                                <p class="profession">Rutgers University</p>
-                                <p class="text-center">We can add some text here</p>
+                            <div class="">
+                                <h3 class="name">Come check out what we have to offer at</h3>
+                                <p class="profession">$INSTNM</p>
+                                <p class="text-center">Check out what we have to offer on the back</p>
                                 <br>
                             </div>
 
@@ -42,96 +41,154 @@
                                 <button class="btn btn-simple" onclick="rotateCard(this)">
                                     <i class="fa fa-mail-forward"></i> Additional information
                                 </button>
+                                <div class="social-links text-center ttt">
+                                <a href="$INSTURL"> $INSTNM Website </a>
                             </div>
+                            </div>
+
                         </div>
                     </div> <!-- end front panel -->
                     <div class="back">
                         <div class="header">
                                 <ul class="nav nav-tabs">
-                                  <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
-                                  <li><a data-toggle="tab" href="#menu1">Graduation Rate</a></li>
-                                  <li><a data-toggle="tab" href="#menu2">Info</a></li>
+                                  <li class="active"><a data-toggle="tab" href="#description">Info</a></li>
+                                  <li><a data-toggle="tab" href="#menu1">Stats</a></li>
+                                  <li><a data-toggle="tab" href="#menu2">Cost</a></li>
+                                  <li><a data-toggle="tab" href="#menu3">Salary</a></li>
                                 </ul>
                         </div>
                         <div class="content">
                             <div class="tab-content">
                                 <div id="description" class="main tab-pane fade in active">
-                                    <h4 class="text-center">Description</h4>
-                                    <p class="text-center">We Put a Description here</p>
+                                    <h4 class="text-center">General Info</h4>
+                                    <p class="text-center">$INSTNM is a $ispublic College located in the $REGION</p>
 
                                     <div class="stats-container">
                                         <div class="stats">
-                                            <h4>State</h4>
-                                            <p>
-                                                New Jersey
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Amount of students</h4>
-                                            <p>
-                                                10,000
-                                            </p>
-                                        </div>
-                                        <div class="stats">
                                             <h4>Address</h4>
                                             <p>
-                                                College Avenue, New Brunswick
+                                                $CITY, $STATE $ZIP
+                                            </p>
+                                            <p></p>
+                                        </div>
+                                        <div class="stats">
+                                            <h4>Type of enviornment</h4>
+                                            <p>
+                                                $type_of_enviornment
+                                            </p>
+                                        </div>
+                                        <div class="stats">
+                                            <h4>Student Population</h4>
+                                            <p>
+                                                $UGDS
                                             </p>
                                         </div>
                                     </div>
 
                                 </div>
                               <div id="menu1" class="main tab-pane fade">
-                                    <h4 class="text-center">Information about academics</h4>
+                                    <h4 class="text-center">School Statistics</h4>
                                     <p class="text-center">Find out our stats</p>
 
                                     <div class="stats-container">
                                         <div class="stats">
                                             <h4>Acceptance Rate</h4>
                                             <p>
-                                                70%
+                                                $ADM_RATE
                                             </p>
                                         </div>
                                         <div class="stats">
                                             <h4>Graduation rate</h4>
                                             <p>
-                                                70%
+                                                $graduation_rate
                                             </p>
                                         </div>
                                         <div class="stats">
                                             <h4>Financial aid</h4>
                                             <p>
-                                                30%
+                                                $PCTFLOAN
                                             </p>
                                         </div>
                                     </div>
 
                                 </div>
                               <div id="menu2" class="main tab-pane fade">
-                                    <h4 class="text-center">Description</h4>
-                                    <p class="text-center">We Put a Description here</p>
+                                    <h4 class="text-center move" style = "font-size: 14px">How much others pay</h4>
+                                    <p class="text-center move" style = "font-size: 14px">Check to see<br> how much other are paying</p>
                                     <div class="stats-container">
                                         <div class="stats">
-                                            <h4>Info here</h4>
-                                            <p>
-                                                Info here
+                                            <h4 style = "font-size: 14px">AVG In state tution</h4>
+                                            <p style = "font-size: 14px">
+                                                $IN_STATE
+                                            </p>
+                                            <h4 style = "font-size: 14px">AVG out of state tuition</h4>
+                                            <p style = "font-size: 14px">
+                                                $OUT_STATE
                                             </p>
                                         </div>
                                         <div class="stats">
-                                            <h4>Info here</h4>
+                                            <h4 style = "font-size: 14px">Cost W/O financial aid</h4>
+                                            <p style = "font-size: 14px">
+                                                $AVG_COST
+                                            </p>
+                                            <h4 style = "font-size: 14px">AVG cost W financial aid</h4>
                                             <p>
-                                                Info here
+                                                $Net_Price
                                             </p>
                                         </div>
-                                        <div class="stats">
-                                            <h4>Info here</h4>
-                                            <p>
-                                                Info here
+                                        <div class="stats raise">
+                                            <h3 style = "font-size: 12px">Family income</h3>
+                                            <h4 style = "font-size: 12px">$0-$30,000</h4>
+                                            <p font-size: 12px>
+                                                $NP_0_30
+                                            </p>
+                                            <h4 style = "font-size: 12px">$30,000 - $48,000</h4>
+                                            <p style = "font-size: 12px">
+                                                $NP_30_48
+                                            </p>
+                                            <h4 style = "font-size: 12px">$48,000 - $75,000</h4>
+                                            <p style = "font-size: 12px">
+                                                $NP_48_75
+                                            </p>
+                                            <h4 style = "font-size: 12px">$75,000 - $110,000</h4>
+                                            <p style = "font-size: 12px">
+                                                $NP_75_110
+                                            </p style = "font-size: 12px">
+                                            <h4 style = "font-size: 12px">$110,000+</h4>
+                                            <p style = "font-size: 12px">
+                                                $NP_110_Plus
                                             </p>
                                         </div>
                                     </div>
 
                                 </div>
+                                <div id="menu3" class="main tab-pane fade">
+                                    <h4 class="text-center">What are People earning once they graduate</h4>
+                                    <p class="text-center">Info here</p>
+
+                                    <div class="stats-container">
+                                        <div class="stats">
+                                            <h4 style = "font-size: 14px">Employment Rate</h4>
+                                            <p style = "font-size: 14px">
+                                                $UNEMP_RATE
+                                            </p>
+                                        </div>
+                                        <div class="stats" >
+                                            <h4 style = "font-size: 14px">Starting salary</h4>
+                                            <p style = "font-size: 14px">
+                                                $MD_EARN_WNE_P6
+                                            </p>
+                                        </div>
+                                        <div class="stats">
+                                            <h4 style = "font-size: 14px">5 year salary</h4>
+                                            <p style = "font-size: 14px">
+                                                $MD_EARN_WNE_P10
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
                         </div>
                         <div class="footer">
                             <button class="btn btn-simple" rel="tooltip" title="Flip Card" onclick="rotateCard(this)">
@@ -141,633 +198,12 @@
                                 <a href="http://www.rutgers.edu/"> Rutgers Website </a>
                             </div>
                         </div>
+                        </div>
                     </div> <!-- end back panel -->
+
                 </div> <!-- end card -->
             </div> <!-- end card-container -->
             </div>
-          </div>
-          <!--END CARD -->
-           <!--Begin Card -->
-          <div class="col-md-4 col-sm-6">
-             <div class="card-container manual-flip">
-                <div class="card">
-                    <div class="front">
-                        <div class="cover">
-                            <div id="googleMap"></div>
-                        </div>
-                        <div class="content">
-                            <div class="main">
-                                <h3 class="name">Thank you for choosing</h3>
-                                <p class="profession">Rutgers University</p>
-                                <p class="text-center">We can add some text here</p>
-                                <br>
-                            </div>
-
-                            <div class="footer">
-                                <button class="btn btn-simple" onclick="rotateCard(this)">
-                                    <i class="fa fa-mail-forward"></i> Additional information
-                                </button>
-                            </div>
-                        </div>
-                    </div> <!-- end front panel -->
-                    <div class="back">
-                        <div class="header">
-                                <ul class="nav nav-tabs">
-                                  <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
-                                  <li><a data-toggle="tab" href="#menu1">Graduation Rate</a></li>
-                                  <li><a data-toggle="tab" href="#menu2">Info</a></li>
-                                </ul>
-                        </div>
-                        <div class="content">
-                            <div class="tab-content">
-                                <div id="description" class="main tab-pane fade in active">
-                                    <h4 class="text-center">Description</h4>
-                                    <p class="text-center">We Put a Description here</p>
-
-                                    <div class="stats-container">
-                                        <div class="stats">
-                                            <h4>State</h4>
-                                            <p>
-                                                New Jersey
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Amount of students</h4>
-                                            <p>
-                                                10,000
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Address</h4>
-                                            <p>
-                                                College Avenue, New Brunswick
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                              <div id="menu1" class="main tab-pane fade">
-                                    <h4 class="text-center">Information about academics</h4>
-                                    <p class="text-center">Find out our stats</p>
-
-                                    <div class="stats-container">
-                                        <div class="stats">
-                                            <h4>Acceptance Rate</h4>
-                                            <p>
-                                                70%
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Graduation rate</h4>
-                                            <p>
-                                                70%
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Financial aid</h4>
-                                            <p>
-                                                30%
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                              <div id="menu2" class="main tab-pane fade">
-                                    <h4 class="text-center">Description</h4>
-                                    <p class="text-center">We Put a Description here</p>
-                                    <div class="stats-container">
-                                        <div class="stats">
-                                            <h4>Info here</h4>
-                                            <p>
-                                                Info here
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Info here</h4>
-                                            <p>
-                                                Info here
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Info here</h4>
-                                            <p>
-                                                Info here
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                        </div>
-                        <div class="footer">
-                            <button class="btn btn-simple" rel="tooltip" title="Flip Card" onclick="rotateCard(this)">
-                                <i class="fa fa-reply"></i> Back
-                            </button>
-                            <div class="social-links text-center">
-                                <a href="http://www.rutgers.edu/"> Rutgers Website </a>
-                            </div>
-                        </div>
-                    </div> <!-- end back panel -->
-                </div> <!-- end card -->
-            </div> <!-- end card-container -->
-            </div>
-          </div>
-          <!--END CARD -->
-           <!--Begin Card -->
-          <div class="col-md-4 col-sm-6">
-             <div class="card-container manual-flip">
-                <div class="card">
-                    <div class="front">
-                        <div class="cover">
-                            <div id="googleMap"></div>
-                        </div>
-                        <div class="content">
-                            <div class="main">
-                                <h3 class="name">Thank you for choosing</h3>
-                                <p class="profession">Rutgers University</p>
-                                <p class="text-center">We can add some text here</p>
-                                <br>
-                            </div>
-
-                            <div class="footer">
-                                <button class="btn btn-simple" onclick="rotateCard(this)">
-                                    <i class="fa fa-mail-forward"></i> Additional information
-                                </button>
-                            </div>
-                        </div>
-                    </div> <!-- end front panel -->
-                    <div class="back">
-                        <div class="header">
-                                <ul class="nav nav-tabs">
-                                  <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
-                                  <li><a data-toggle="tab" href="#menu1">Graduation Rate</a></li>
-                                  <li><a data-toggle="tab" href="#menu2">Info</a></li>
-                                </ul>
-                        </div>
-                        <div class="content">
-                            <div class="tab-content">
-                                <div id="description" class="main tab-pane fade in active">
-                                    <h4 class="text-center">Description</h4>
-                                    <p class="text-center">We Put a Description here</p>
-
-                                    <div class="stats-container">
-                                        <div class="stats">
-                                            <h4>State</h4>
-                                            <p>
-                                                New Jersey
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Amount of students</h4>
-                                            <p>
-                                                10,000
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Address</h4>
-                                            <p>
-                                                College Avenue, New Brunswick
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                              <div id="menu1" class="main tab-pane fade">
-                                    <h4 class="text-center">Information about academics</h4>
-                                    <p class="text-center">Find out our stats</p>
-
-                                    <div class="stats-container">
-                                        <div class="stats">
-                                            <h4>Acceptance Rate</h4>
-                                            <p>
-                                                70%
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Graduation rate</h4>
-                                            <p>
-                                                70%
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Financial aid</h4>
-                                            <p>
-                                                30%
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                              <div id="menu2" class="main tab-pane fade">
-                                    <h4 class="text-center">Description</h4>
-                                    <p class="text-center">We Put a Description here</p>
-                                    <div class="stats-container">
-                                        <div class="stats">
-                                            <h4>Info here</h4>
-                                            <p>
-                                                Info here
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Info here</h4>
-                                            <p>
-                                                Info here
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Info here</h4>
-                                            <p>
-                                                Info here
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                        </div>
-                        <div class="footer">
-                            <button class="btn btn-simple" rel="tooltip" title="Flip Card" onclick="rotateCard(this)">
-                                <i class="fa fa-reply"></i> Back
-                            </button>
-                            <div class="social-links text-center">
-                                <a href="http://www.rutgers.edu/"> Rutgers Website </a>
-                            </div>
-                        </div>
-                    </div> <!-- end back panel -->
-                </div> <!-- end card -->
-            </div> <!-- end card-container -->
-            </div>
-          </div>
-          <!--END CARD -->
-          <div class="col-md-4 col-sm-6">
-             <div class="card-container manual-flip">
-                <div class="card">
-                    <div class="front">
-                        <div class="cover">
-                            <div id="googleMap"></div>
-                        </div>
-                        <div class="content">
-                            <div class="main">
-                                <h3 class="name">Thank you for choosing</h3>
-                                <p class="profession">Rutgers University</p>
-                                <p class="text-center">We can add some text here</p>
-                                <br>
-                            </div>
-
-                            <div class="footer">
-                                <button class="btn btn-simple" onclick="rotateCard(this)">
-                                    <i class="fa fa-mail-forward"></i> Additional information
-                                </button>
-                            </div>
-                        </div>
-                    </div> <!-- end front panel -->
-                    <div class="back">
-                        <div class="header">
-                                <ul class="nav nav-tabs">
-                                  <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
-                                  <li><a data-toggle="tab" href="#menu1">Graduation Rate</a></li>
-                                  <li><a data-toggle="tab" href="#menu2">Info</a></li>
-                                </ul>
-                        </div>
-                        <div class="content">
-                            <div class="tab-content">
-                                <div id="description" class="main tab-pane fade in active">
-                                    <h4 class="text-center">Description</h4>
-                                    <p class="text-center">We Put a Description here</p>
-
-                                    <div class="stats-container">
-                                        <div class="stats">
-                                            <h4>State</h4>
-                                            <p>
-                                                New Jersey
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Amount of students</h4>
-                                            <p>
-                                                10,000
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Address</h4>
-                                            <p>
-                                                College Avenue, New Brunswick
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                              <div id="menu1" class="main tab-pane fade">
-                                    <h4 class="text-center">Information about academics</h4>
-                                    <p class="text-center">Find out our stats</p>
-
-                                    <div class="stats-container">
-                                        <div class="stats">
-                                            <h4>Acceptance Rate</h4>
-                                            <p>
-                                                70%
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Graduation rate</h4>
-                                            <p>
-                                                70%
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Financial aid</h4>
-                                            <p>
-                                                30%
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                              <div id="menu2" class="main tab-pane fade">
-                                    <h4 class="text-center">Description</h4>
-                                    <p class="text-center">We Put a Description here</p>
-                                    <div class="stats-container">
-                                        <div class="stats">
-                                            <h4>Info here</h4>
-                                            <p>
-                                                Info here
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Info here</h4>
-                                            <p>
-                                                Info here
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Info here</h4>
-                                            <p>
-                                                Info here
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                        </div>
-                        <div class="footer">
-                            <button class="btn btn-simple" rel="tooltip" title="Flip Card" onclick="rotateCard(this)">
-                                <i class="fa fa-reply"></i> Back
-                            </button>
-                            <div class="social-links text-center">
-                                <a href="http://www.rutgers.edu/"> Rutgers Website </a>
-                            </div>
-                        </div>
-                    </div> <!-- end back panel -->
-                </div> <!-- end card -->
-            </div> <!-- end card-container -->
-            </div>
-          </div>
-          <!--END CARD --> <!--Begin Card -->
-          <div class="col-md-4 col-sm-6">
-             <div class="card-container manual-flip">
-                <div class="card">
-                    <div class="front">
-                        <div class="cover">
-                            <div id="googleMap"></div>
-                        </div>
-                        <div class="content">
-                            <div class="main">
-                                <h3 class="name">Thank you for choosing</h3>
-                                <p class="profession">Rutgers University</p>
-                                <p class="text-center">We can add some text here</p>
-                                <br>
-                            </div>
-
-                            <div class="footer">
-                                <button class="btn btn-simple" onclick="rotateCard(this)">
-                                    <i class="fa fa-mail-forward"></i> Additional information
-                                </button>
-                            </div>
-                        </div>
-                    </div> <!-- end front panel -->
-                    <div class="back">
-                        <div class="header">
-                                <ul class="nav nav-tabs">
-                                  <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
-                                  <li><a data-toggle="tab" href="#menu1">Graduation Rate</a></li>
-                                  <li><a data-toggle="tab" href="#menu2">Info</a></li>
-                                </ul>
-                        </div>
-                        <div class="content">
-                            <div class="tab-content">
-                                <div id="description" class="main tab-pane fade in active">
-                                    <h4 class="text-center">Description</h4>
-                                    <p class="text-center">We Put a Description here</p>
-
-                                    <div class="stats-container">
-                                        <div class="stats">
-                                            <h4>State</h4>
-                                            <p>
-                                                New Jersey
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Amount of students</h4>
-                                            <p>
-                                                10,000
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Address</h4>
-                                            <p>
-                                                College Avenue, New Brunswick
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                              <div id="menu1" class="main tab-pane fade">
-                                    <h4 class="text-center">Information about academics</h4>
-                                    <p class="text-center">Find out our stats</p>
-
-                                    <div class="stats-container">
-                                        <div class="stats">
-                                            <h4>Acceptance Rate</h4>
-                                            <p>
-                                                70%
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Graduation rate</h4>
-                                            <p>
-                                                70%
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Financial aid</h4>
-                                            <p>
-                                                30%
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                              <div id="menu2" class="main tab-pane fade">
-                                    <h4 class="text-center">Description</h4>
-                                    <p class="text-center">We Put a Description here</p>
-                                    <div class="stats-container">
-                                        <div class="stats">
-                                            <h4>Info here</h4>
-                                            <p>
-                                                Info here
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Info here</h4>
-                                            <p>
-                                                Info here
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Info here</h4>
-                                            <p>
-                                                Info here
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                        </div>
-                        <div class="footer">
-                            <button class="btn btn-simple" rel="tooltip" title="Flip Card" onclick="rotateCard(this)">
-                                <i class="fa fa-reply"></i> Back
-                            </button>
-                            <div class="social-links text-center">
-                                <a href="http://www.rutgers.edu/"> Rutgers Website </a>
-                            </div>
-                        </div>
-                    </div> <!-- end back panel -->
-                </div> <!-- end card -->
-            </div> <!-- end card-container -->
-            </div>
-          </div>
-          <!--END CARD --> <!--Begin Card -->
-          <div class="col-md-4 col-sm-6">
-             <div class="card-container manual-flip">
-                <div class="card">
-                    <div class="front">
-                        <div class="cover">
-                            <div id="googleMap"></div>
-                        </div>
-                        <div class="content">
-                            <div class="main">
-                                <h3 class="name">Thank you for choosing</h3>
-                                <p class="profession">Rutgers University</p>
-                                <p class="text-center">We can add some text here</p>
-                                <br>
-                            </div>
-
-                            <div class="footer">
-                                <button class="btn btn-simple" onclick="rotateCard(this)">
-                                    <i class="fa fa-mail-forward"></i> Additional information
-                                </button>
-                            </div>
-                        </div>
-                    </div> <!-- end front panel -->
-                    <div class="back">
-                        <div class="header">
-                                <ul class="nav nav-tabs">
-                                  <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
-                                  <li><a data-toggle="tab" href="#menu1">Graduation Rate</a></li>
-                                  <li><a data-toggle="tab" href="#menu2">Info</a></li>
-                                </ul>
-                        </div>
-                        <div class="content">
-                            <div class="tab-content">
-                                <div id="description" class="main tab-pane fade in active">
-                                    <h4 class="text-center">Description</h4>
-                                    <p class="text-center">We Put a Description here</p>
-
-                                    <div class="stats-container">
-                                        <div class="stats">
-                                            <h4>State</h4>
-                                            <p>
-                                                New Jersey
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Amount of students</h4>
-                                            <p>
-                                                10,000
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Address</h4>
-                                            <p>
-                                                College Avenue, New Brunswick
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                              <div id="menu1" class="main tab-pane fade">
-                                    <h4 class="text-center">Information about academics</h4>
-                                    <p class="text-center">Find out our stats</p>
-
-                                    <div class="stats-container">
-                                        <div class="stats">
-                                            <h4>Acceptance Rate</h4>
-                                            <p>
-                                                70%
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Graduation rate</h4>
-                                            <p>
-                                                70%
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Financial aid</h4>
-                                            <p>
-                                                30%
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                              <div id="menu2" class="main tab-pane fade">
-                                    <h4 class="text-center">Description</h4>
-                                    <p class="text-center">We Put a Description here</p>
-                                    <div class="stats-container">
-                                        <div class="stats">
-                                            <h4>Info here</h4>
-                                            <p>
-                                                Info here
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Info here</h4>
-                                            <p>
-                                                Info here
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Info here</h4>
-                                            <p>
-                                                Info here
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                        </div>
-                        <div class="footer">
-                            <button class="btn btn-simple" rel="tooltip" title="Flip Card" onclick="rotateCard(this)">
-                                <i class="fa fa-reply"></i> Back
-                            </button>
-                            <div class="social-links text-center">
-                                <a href="http://www.rutgers.edu/"> Rutgers Website </a>
-                            </div>
-                        </div>
-                    </div> <!-- end back panel -->
-                </div> <!-- end card -->
-            </div> <!-- end card-container -->
-            </div>
-          </div>
           <!--END CARD -->
         </div> <!-- end col-sm-10 -->
     </div> <!-- end row -->
