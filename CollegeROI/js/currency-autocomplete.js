@@ -18,6 +18,7 @@ major2Array.push("n/a");
 
 var submitQuery;
 var finalCollegeQueryString ="";
+var regionStringArray;
 var collegeQueryString="";
 var stateQueryString="";
 var majorsQueryString="";
@@ -70,6 +71,18 @@ function buildQueryString(submitQuery){
   return finalQueryString;
 }
 
+function regionStringBuild(){
+regionStringArray = [];
+$('input[type="checkbox"]').each(function () {
+    if(this.checked){
+      regionStringArray.push($(this).value);
+    }
+    
+});
+regionString = "(";
+regionString += regionStringArray.join("OR");
+console.log(regionString);
+};
 
 function queryString(collegesString, statesString) {
   this.collegesString = collegesString;
@@ -121,20 +134,20 @@ function submitQueryBuild(){
 
 
 $(function(){
-
+ 
    $('#cancelState').click(function(){
        $("span:has(junk)").remove();
 });
-    $('#submit').click(function(){
-       submitQueryBuild();
+    $('#submit1').click(function(){
+       regionStringBuild();
+       //submitQueryBuild();
 });
 /************Form 1 Function ********************************************/
   // setup autocomplete function pulling from colleges[] array
   $('#collegeAuto1').autocomplete({
     lookup: colleges,
     onSelect: function (suggestion) {
-      
-      $('#college1').append('<div class="chip"> <div class="chip-media"><img src="http://lorempixel.com/100/100/people/9/"></div> <div class="chip-label">'+suggestion.value+'</div> </div>');
+      //$('#college1').append('<div class="chip"> <div class="chip-media"><img src="http://lorempixel.com/100/100/people/9/"></div> <div class="chip-label">'+suggestion.value+'</div> </div>');
       college1Array.push(suggestion.value);
       console.log(college1Array);
     }
@@ -149,7 +162,6 @@ $(function(){
       +'</span> <a href="#" class="mdl-chip__action"><i class="material-icons">cancel</i></button></span>');
     }
   });
-
 
 /*****************Form 2 Functions **********************************************/
   $('#majorAuto2').autocomplete({

@@ -7,13 +7,15 @@
   <link rel="shortcut icon" href="http://designshack.net/favicon.ico">
   <link rel="icon" href="http://designshack.net/favicon.ico">
   <link rel="stylesheet" type="text/css" media="all" href="/css/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="styl esheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
       <link href = "https://code.jquery.com/ui/1.10.2/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
-      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.js"></script>
+     <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
       <script src = "https://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-
-  <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+    
+  <!--<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>-->
   <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
   <script type="text/javascript" src="js/currency-autocomplete.js"></script>
   <script type="text/javascript" src="js/addinput.js"></script>
@@ -120,15 +122,18 @@ $conn->close();
     //JSON.parse(colleges);
 </script>
 <body>
+
   <div id="topbar"><a href="#">This is a toolbar</a></div>
+ 
   <div id="w">
   <h1>Form 1</h1>
  
-    
+   
 
     <div id="content" align="center">
 <form>
   <div class="form-group">
+    
     <p>
           <label for = "price2">admission rate</label>
           <input type = "text" id = "price2" style = "border:0; color:#b9cd6d; font-weight:bold;">
@@ -143,7 +148,7 @@ $conn->close();
       <br><br>
   </div>
 
-  <div class = "form-group" id = "college1">
+  <div class = "form-group" id = "college">
     <legend>Please enter your college(s)</legend> 
       <div>
           <form><input type="text" class="biginput college-auto form-control" id="collegeAuto1"></form>
@@ -155,7 +160,7 @@ $conn->close();
     <div class="checkbox">
                             <label>
                                 <fieldset class="form-inline">
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" value = "UGDS < 2000"/>
                                     Small School < 2000 people
                                  </fieldset>   
                             </label>
@@ -163,7 +168,7 @@ $conn->close();
                         <div class="checkbox">
                             <label>
                                 <fieldset class="form-inline">
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" value= "UGDS > 2000 OR UGDS < 15001"/>
                                      Medium School 2000-15,000 people
                                 </fieldset>
                             </label>
@@ -171,7 +176,7 @@ $conn->close();
                         <div class="checkbox">
                             <label>
                                 <fieldset class="form-inline">
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" value = "UGDS > 15000"/>
                                     Large School > 15,000 people
                                  </fieldset>   
                             </label>
@@ -182,19 +187,19 @@ $conn->close();
     <legend>I want to go to:</legend>
     <div class="form-check">
       <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="1" checked>
         A public school
       </label>
     </div>
     <div class="form-check">
     <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="2">
         A private not for profit
       </label>
     </div>
     <div class="form-check disabled">
     <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="3">
         A private for profit
       </label>
     </div>
@@ -214,7 +219,7 @@ $conn->close();
                         <div class="checkbox">
                             <label>
                                 <fieldset class="form-inline">
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" value = "REGION = 1" id = "checkbox1"/>
                                     New England (CT, ME, MA, NH, RI, VT)
                                  </fieldset>   
                             </label>
@@ -222,7 +227,7 @@ $conn->close();
                         <div class="checkbox">
                             <label>
                                 <fieldset class="form-inline">
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" value = "REGION = 2" id = "checkbox2"/>
                                     Mid-Atlantic (DE, DC, MD, NJ, NY, PA)
                                 </fieldset>
                             </label>
@@ -230,7 +235,7 @@ $conn->close();
                         <div class="checkbox">
                             <label>
                                 <fieldset class="form-inline">
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" value = "REGION = 3" id = "checkbox3"/>
                                     Greak Lakes (IL, IN, MI, OH, WI)
                                  </fieldset>   
                             </label>
@@ -238,7 +243,7 @@ $conn->close();
                         <div class="checkbox">
                             <label>
                                 <fieldset class="form-inline">
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" value = "REGION = 4" id = "checkbox4"/>
                                     Plains (IA, KS, MN, MO, NE, ND, SD)
                                 </fieldset>
                             </label>
@@ -246,7 +251,7 @@ $conn->close();
                         <div class="checkbox">
                             <label>
                                 <fieldset class="form-inline">
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" value = "REGION = 5" id = "checkbox5"/>
                                     Southeast (AL, AR, FL, GA, KY, LA, MS, NC, SC, TN, VA, WV)
                                  </fieldset>   
                             </label>
@@ -254,7 +259,7 @@ $conn->close();
                         <div class="checkbox">
                             <label>
                                 <fieldset class="form-inline">
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" value = "REGION = 6" id = "checkbox6"/>
                                     Southwest (AZ, NM, OK, TX)
                                 </fieldset>
                             </label>
@@ -262,7 +267,7 @@ $conn->close();
                         <div class="checkbox">
                             <label>
                                 <fieldset class="form-inline">
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" value = "REGION = 7" id = "checkbox7"/>
                                     Rocky Mountains (CO, ID, MT, UT, WY)
                                  </fieldset>   
                             </label>
@@ -270,7 +275,7 @@ $conn->close();
                         <div class="checkbox">
                             <label>
                                 <fieldset class="form-inline">
-                                    <input type="checkbox"/>
+                                    <input type="checkbox" value = "REGION = 8" id = "checkbox8"/>
                                      Outlying Areas (AS, FM GU, MH, MP, PR, PW, VI)
                                 </fieldset>
                             </label>
@@ -278,7 +283,7 @@ $conn->close();
   </div>
 
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" id= "submit1">Submit</button>
 </form>
     </div><!-- @end #content -->
 
@@ -347,8 +352,6 @@ $conn->close();
 
 
   </div>
-
-
 
 </body>
 </html>

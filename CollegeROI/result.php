@@ -189,7 +189,7 @@
                         <div class="content">
                             <div class="">
                                 <h3 class="name">Come check out what we have to offer at</h3>
-                                <p class="profession">$collegeName</p>
+                                <p class="profession"><b>$collegeName</b></p>
                                 <p class="text-center">Check out what we have to offer on the back</p>
                                 <br>
                             </div>
@@ -218,7 +218,7 @@
                             <div class="tab-content">
                                 <div id="description$collegeUnitID" class="main tab-pane fade in active">
                                     <h4 class="text-center">General Info</h4>
-                                    <p class="text-center">$collegeName is a $isPublic College located in the $region</p>
+                                    <p class="text-center">$collegeName is a <b>$isPublic</b> College located in the $region</p>
 
                                     <div class="stats-container">
                                         <div class="stats">
