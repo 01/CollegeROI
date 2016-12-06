@@ -165,6 +165,7 @@ $(function () {
 
 
 
+
            echo "{";
             echo "name: '".$row["INSTNM"]."',";
            echo "data: [".$row["NP_0_30"].",".$row["NP_30_48"].",". $row["NP_48_75"].",".$row["NP_75_110"].",".$row["NP_110_Plus"]."]";
@@ -249,10 +250,10 @@ $(function () {
                   }
           },
         title: {
-            text: 'Average Admission Rate comparison'
+            text: 'Average Net Price Comparison'
         },
         subtitle: {
-            text: 'Comparison of Admission Rate of Selected Colleges'
+            text: 'Comparison of Average Net Price of Attendence of Selected Colleges'
         },
         xAxis: {
              categories: [<?php echo "'" .join($netPriceNames, "','"). "'" ?>]
@@ -281,10 +282,10 @@ $(function () {
                   }
           },
         title: {
-            text: 'Average Net Price Comparison'
+            text: 'Average Admission Rate comparison'
         },
         subtitle: {
-            text: 'Comparison of Average Net Price of Attendence of Selected Colleges'
+            text: 'Comparison of Admission Rate of Selected Colleges'
         },
         xAxis: {
              categories: [<?php echo "'" .join($netPriceNames, "','"). "'" ?>]
