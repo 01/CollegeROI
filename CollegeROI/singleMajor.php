@@ -26,7 +26,7 @@
  <?php
  
   $localtest = true;
-  $debug = false;
+  $debug = true;
   if(!$localtest){
     $servername = "localhost";
     $username = "id279319_admin";
@@ -55,19 +55,16 @@
           } else {
              // printf("Current character set: %s\n", $conn->character_set_name());
           }
-          if (isset($_GET["compareQuery"])) {
-              $sql = "SELECT * FROM Main_Table WHERE ";
-              $sql1 = $_GET["compareQuery"];
-              $sql = $sql.$sql1;
-              echo $sql;
+          if (isset($_GET["sqlQuery"])) {
+              $sql = $_GET["sqlQuery"];
+              //echo $sql;
               //echo '5';
           }else{
               //echo 'no variable received';
           }
           if($debug==true){
-            $sql = "SELECT * FROM Main_Table Limit 10";
+            $sql = "SELECT * FROM Main_Table Limit 20";
           }
-          else{}
           $result = $conn->query($sql);
           if (!$result) {
             //echo "Could not successfully run query ($sql) from DB: " . mysql_error();
@@ -121,19 +118,46 @@ $(function () {
         <?php 
         $number = $result->num_rows;
         $i = 1;
+        $percentage1 = 0;
+        $percentage2 = 0;
+        $percentage3 = 0;
+        $percentage4 = 0;
          while($row = $result->fetch_assoc()) {
 
                 //echo "id: " . $row["INSTNM"]."<br>";
+            if(!$row["IN_STATE"]) $inStateTuitions[] = 0;
+            else $inStateTuitions[]= $row["IN_STATE"];
+            if(!$row["OUT_STATE"]) $outStateTuitions[] = 0;
+            else $outStateTuitions[]= $row["OUT_STATE"];
             $netPriceNames[]=$row["INSTNM"];
-            if(!$row["Net_Price"])$netPriceValues[]=0;
-             else $netPriceValues[] = $row["Net_Price"];
+            if(!$row["Net_Price"]) $netPriceValues[] = 0;
+            else $netPriceValues[]= $row["Net_Price"];
+
+
+            if($row["ADM_RATE"]> 0 && $row["ADM_RATE"] <= 0.25){
+              $percentage1++;
+            }
+            else if($row["ADM_RATE"] > 0.25 && $row["ADM_RATE"] <= 0.50){
+              $percentage2++;
+            }
+            else if($row["ADM_RATE"] > 0.50 && $row["ADM_RATE"] <= 0.75){
+              $percentage3++;
+            }
+            else if($row["ADM_RATE"] > 0.75 && $row["ADM_RATE"] <= 1.00){
+              $percentage4++;
+            }
            echo "{";
             echo "name: '".$row["INSTNM"]."',";
            echo "data: [".$row["NP_0_30"].",".$row["NP_30_48"].",". $row["NP_48_75"].",".$row["NP_75_110"].",".$row["NP_110_Plus"]."]";
             if($i==$number){echo "}";}
             else {echo "},";}
               $i++;
-    }?>
+         }
+         $percentage1 = $percentage1/$number;
+         $percentage2 = $percentage2/$number;
+         $percentage3 = $percentage3/$number;
+         $percentage4 = $percentage4/$number;
+    ?>
       
       ],
         responsive: {
@@ -188,44 +212,188 @@ $(function () {
            //echo 'Made it here';
            $conn->close();
 ?> 
-<div id="container"></div>
-<br><br><br>
-<div id="container1"></div>
+
+<script type="text/javascript">
+$(function () {
+    var chart = Highcharts.chart('container2', {
+
+        chart: {
+            type: 'column'
+        },
+
+        title: {
+            text: 'In State vs Out of State'
+        },
+
+        subtitle: {
+            text: 'In state tuition compared to out of state tuition'
+        },
+        legend: {
+            align: 'right',
+            verticalAlign: 'middle',
+            layout: 'vertical'
+        },
+
+        xAxis: {
+            categories: [<?php echo "'" .join($netPriceNames, "','"). "'" ?>],
+            labels: {
+                x: -10
+            }
+        },
+
+        yAxis: {
+            allowDecimals: false,
+            title: {
+                text: 'Cost of Tuition'
+            }
+        },
+
+        series: [{
+            name: 'In State tuition',
+            data: [<?php echo join($inStateTuitions, ', ') ?>]
+        }, {
+            name: 'Out of State tuition',
+            data: [<?php echo join($outStateTuitions, ', ') ?>]
+        }],
+
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        align: 'center',
+                        verticalAlign: 'bottom',
+                        layout: 'horizontal'
+                    },
+                    yAxis: {
+                        labels: {
+                            align: 'left',
+                            x: 0,
+                            y: -5
+                        },
+                        title: {
+                            text: null
+                        }
+                    },
+                    subtitle: {
+                        text: null
+                    },
+                    credits: {
+                        enabled: false
+                    }
+                }
+            }]
+        }
+    });
+
+    $('#small').click(function () {
+        chart.setSize(400, 300);
+    });
+
+    $('#large').click(function () {
+        chart.setSize(600, 300);
+    });
+
+});
+</script>
+
 <script type="text/javascript">
 
 $(function () {
-    var chart = Highcharts.chart('container1', {
+
+    $(document).ready(function () {
+
+        // Build the chart
+        Highcharts.chart('container3', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Acceptance Rate Comparison'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: '0%-25%',
+                    y: <?php echo $percentage1 ?>
+                }, {
+                    name: '26%-50%',
+                    y: <?php echo $percentage2 ?>
+                }, {
+                    name: '51%-75%',
+                    y: <?php echo $percentage3 ?>
+                }, {
+                    name: '76%-100%',
+                    y: <?php echo $percentage4 ?>
+                }]
+            }]
+        });
+    });
+});
+</script>
+
+<script type="text/javascript">
+
+$(function () {
+    var chart2 = Highcharts.chart('container0', {
         yAxis: {
-                  labels: {
-                      formatter: function() {
-                          return '$' +this.value ;
-                        }
-                  }
-          },
+             labels: {
+        formatter: function() {
+            return '$' +this.value ;
+        }
+    },
+},
         title: {
             text: 'Average Net Price Comparison'
         },
         subtitle: {
             text: 'Comparison of Average Net Price of Attendence of Selected Colleges'
         },
+
         xAxis: {
-             categories: [<?php echo "'" .join($netPriceNames, "','"). "'" ?>]
+            categories: [<?php echo "'" .join($netPriceNames, "','"). "'" ?>]
         },
+
         series: [{
             type: 'column',
             colorByPoint: true,
+
             data: [<?php echo join($netPriceValues, ', ') ?>],
             showInLegend: false
-
-
-            
-            
         }]
-    });
-  })
 
+    });
+  });
 </script>
 
+
+
+<div id="container"></div>
+<br><br><br>
+<div id="container0"></div>
+<br><br><br>
+<div id="container2"></div>
+<br><br><br>
+<div id="container3"></div>
 
 
 </html>
