@@ -1,4 +1,6 @@
-
+<?php include 'header.php'; ?>
+<?php include 'connect.php'; ?>
+<?php include 'sidebar.php'; ?>
 
   <title>Input Autocomplete Suggestions Demo</title>
 <link href='css/bootstrap.css' rel='stylesheet' />
@@ -14,8 +16,19 @@
     <script type="text/javascript" src="js/map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwqtFDpH6Vj3zIF5YJh3OidKS7Jy0rbKE"></script>
      <link href="css/mystyles.css" rel="stylesheet">
-
-
+<body>
+<div class = "container">
+  <br>
+      <p style="text-align:center;">
+          Select a couple of colleges for comparison
+      </p>
+      <p class="text-center">
+        <button class="btn btn-primary" id= "compareSubmit">
+          Submit
+        </button>
+        </p>
+  <br>
+  <div class="col-sm-offset-2">
  <?php
  
   $localtest = true;
@@ -177,8 +190,7 @@
               echo <<< EOT
  <!-- Card go here-->
 
-                  <!--Begin Card need the line under in the main result taken out here for neatness-->
-          <div class="col-md-4 col-sm-6">
+          <div class="col-md-6 col-sm-6">
              <div class="card-container manual-flip">
                 <div class="card">
                     <div class="front">
@@ -188,12 +200,18 @@
                             initialize($collegeLat, $collegeLong,$collegeUnitID);</script>
                         </div>
                         <div class="content">
-                            <div class="">
-                                <h3 class="name">Come check out what we have to offer at</h3>
-                                <p class="profession"><b>$collegeName</b></p>
-                                <p class="text-center">Check out what we have to offer on the back</p>
-                                <br>
+                        <img style="display:inline-block" src="//logo.clearbit.com/$collegeURL?size=80">
+                            <div style="display:inline-block; width : 70%;">
+                              
+                                <h3 class="name"><b>$collegeName</b></h3>
+                                
+                                <p class="text-center profession">Check out what we have to offer on the back</p> 
                             </div>
+                              <label class="moveright custom-control custom-checkbox">
+                                          <input type="checkbox" value= "$collegeUnitID" id= "compare" class="custom-control-input">
+                                          <span class="custom-control-indicator"></span>
+                                          <span class="custom-control-description">add for comparison</span>
+                              </label>
 
                             <div class="footer">
                                 <div class="social-links text-center">
@@ -213,6 +231,13 @@
                                   <li><a data-toggle="tab" href="#menu1$collegeUnitID">Stats</a></li>
                                   <li><a data-toggle="tab" href="#menu2$collegeUnitID">Cost</a></li>
                                   <li><a data-toggle="tab" href="#menu3$collegeUnitID">Salary</a></li>
+                                  <li class="movetop">
+                                        <label class="custom-control custom-checkbox">
+                                          <input type="checkbox" value= "$collegeUnitID" id= "compare" class="custom-control-input">
+                                          <span class="custom-control-indicator"></span>
+                                          <span class="custom-control-description">add for comparison</span>
+                                        </label>
+                                  </li>
                                 </ul>
                         </div>
                         <div class="content">
@@ -373,8 +398,8 @@
                 </div> <!-- end card -->
             </div> <!-- end card-container -->
             </div>
-            </div>
 EOT;
+
     } //echo "</div></div></div>";
 } else {
     echo "0 results";
@@ -406,5 +431,7 @@ EOT;
   ga('create', 'UA-46172202-4', 'auto');
   ga('send', 'pageview');
 </script>
-
+</div>
+</div>
+</body>
 </html>
