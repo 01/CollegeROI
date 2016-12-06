@@ -37,16 +37,17 @@ $top10AdmHardQuery = "Select INSTNM, ADM_RATE From Main_Table WHERE (ADM_RATE > 
               $schoolEasy = $row1["INSTNM"];
               $admEasy = $row1["ADM_RATE"] *100;
               $schoolHard = $row2["INSTNM"];
-              $admEasy = $row2["ADM_RATE"] * 100;
+              $admHard = $row2["ADM_RATE"] * 100;
              
               echo '<p style="display:inline">';
               if(i<10)echo "$i  ";
               else echo "$i.";
               echo $schoolHard;
-              echo " $admEasy % </p>";
+              echo " $admHard % </p>";
               echo '                <p style="display:inline">';
               echo $schoolEasy;
-              echo "</p><br>";
+               echo " $admEasy % </p>";
+              echo "</p>";
               $i++;
             //  echo "<pre class="tab">1.) $schoolHard  $admHard %    $schoolEasy $admEasy % </pre><br>";
                
