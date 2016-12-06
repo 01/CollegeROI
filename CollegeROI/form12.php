@@ -68,7 +68,12 @@ $conn->close();
     var majors = <?php echo $majorList ?>;
     //JSON.parse(colleges);
 </script>
+<<<<<<< HEAD
   <div id="w">
+=======
+
+  <div id="w mainbody">
+>>>>>>> 316423520e404b40a959e1dbf556d07500990665
   <h1>Form 1</h1>
  
    

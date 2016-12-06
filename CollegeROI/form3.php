@@ -1,3 +1,7 @@
+<?php include 'header.php'; ?>
+<?php include 'connect.php'; ?>
+<?php include 'sidebar.php'; ?>
+<?php include 'content.php'; ?>
  <h1>Form 3</h1>
  
     

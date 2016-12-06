@@ -11,6 +11,9 @@
   <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
   <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwqtFDpH6Vj3zIF5YJh3OidKS7Jy0rbKE"></script>
+     <link href="css/mystyles.css" rel="stylesheet">
 
 
  <?php
@@ -157,6 +160,8 @@
                 //echo "id: " . $row["INSTNM"]."<br>";
             /****** Storing all necessary values for each tuple Each iteration of loop is single tuple *****************/
             $collegeName = $row["INSTNM"];
+            $collegeLat = $row["LATITUDE"];
+            $collegeLong = $row["LONGITUDE"];
             $collegeUnitID = $row["UNITID"];
             $collegeCity = $row["CITY"];
             $collegeState = $row["STATE"];
@@ -196,21 +201,22 @@
                 <div class="card">
                     <div class="front">
                         <div class="cover">
-                    <p>
-                        
-                      </p>
-                            <!--<div id="googleMap"></div>-->
+                            <div class = "map" id="googleMap$collegeUnitID"></div>
+                            <script>
+                            initialize($collegeLat, $collegeLong,$collegeUnitID);</script>
                         </div>
                         <div class="content">
-                            <div class="">
-                                <h3 class="name">Come check out what we have to offer at</h3>
-                                <p class="profession"><b>$collegeName</b></p>
-                                <p class="text-center">Check out what we have to offer on the back</p>
-                                <br>
+                        <img style="display:inline-block" src="//logo.clearbit.com/$collegeURL?size=80">
+                            <div style="display:inline-block; width : 70%;">
+
+                              
+                                <h3 class="name"><b>$collegeName</b></h3>
+                                
+                                <p class="text-center profession">Check out what we have to offer on the back</p> 
                             </div>
 
                             <div class="footer">
-                                <div class="social-links text-center ttt">
+                                <div class="social-links text-center">
                                 <a href="http://$collegeURL"> $collegeName Website </a>
                             </div>
                              <button class="btn btn-simple" onclick="rotateCard(this)">
@@ -371,6 +377,7 @@
                                 </div>
 
                         </div>
+                          
                         <div class="footer">
                             
                             <div class="social-links text-center">
@@ -396,7 +403,6 @@ EOT;
            //echo 'Made it here';
            $conn->close();
 ?> 
-
 <script type="text/javascript">
     $().ready(function(){
         $('[rel="tooltip"]').tooltip();
@@ -420,6 +426,5 @@ EOT;
   ga('create', 'UA-46172202-4', 'auto');
   ga('send', 'pageview');
 </script>
-
 
 </html>
