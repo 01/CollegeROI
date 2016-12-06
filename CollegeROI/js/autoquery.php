@@ -1,4 +1,4 @@
-
+<?php
 
 $sql1 = "SELECT INSTNM FROM Main_Table";
 $result1 = $conn->query($sql1);
@@ -34,6 +34,7 @@ $stateList = json_encode($data2);
 }
 
 $sql3  = "SELECT * FROM major_salary";
+$sqkWHERE (NET_PRICE <25000 AND NET_PRICE > 15000) AND ((UGDS > 2000 AND UGDS < 15001)) AND (ADM_RATE <1 AND ADM_RATE > 0)
 $result3 = $conn->query($sql3);
 if (!$result3) {
      echo printf("Could not successfully run query ($sql3) from DB: %s", $dbname);
@@ -50,4 +51,10 @@ while($row = $result3->fetch_assoc())
 $majorList=json_encode($data3);
 }
 $conn->close();
-
+?> 
+<script type="text/javascript">
+    var colleges = <?php echo $collegeList ?>;
+    var states = <?php echo $stateList ?>;
+    var majors = <?php echo $majorList ?>;
+    //JSON.parse(colleges);
+</script>
