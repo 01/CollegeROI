@@ -23,6 +23,13 @@
 							</a>
 					</li>
 					<li role="separator" class="divider"></li>
+					<li>
+							<a href="/top10.php">
+									<i class="fa fa-home" aria-hidden="true"></i>
+									<span>Top 10</span>
+							</a>
+					</li>
+					<li role="separator" class="divider"></li>
 
 				
 					<!-- chart types -->

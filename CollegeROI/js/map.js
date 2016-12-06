@@ -7,7 +7,7 @@ var myCenter = new google.maps.LatLng(lat, long);
 var mapProp = {
 center:myCenter,
 zoom:12,
-scrollwheel:true,
+scrollwheel:false,
 draggable:true,
 mapTypeId:google.maps.MapTypeId.ROADMAP
 };

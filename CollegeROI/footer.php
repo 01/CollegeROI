@@ -1,6 +1,7 @@
-                </div> <!-- /content-->
-            </div> <!-- /row -->
-        </div> <!-- /container-fluid -->
+
+                    </div> <!-- /content-->
+                </div> <!-- /row -->
+            </div> <!-- /container-fluid -->
 
         <!-- footer -->
         <div id="footer">
