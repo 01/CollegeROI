@@ -5,6 +5,7 @@ function collegeStringBuild (){
       collegeQueryString +=(college1Array.join(" OR "));
       collegeQueryString += ")";
       console.log(collegeQueryString);
+      return collegeQueryString;
     }
 };
 
@@ -18,7 +19,15 @@ function stateStringBuilder(){
     } 
 };
 
-
+function majorStringBuild(){
+  if(major2Array.length>0){
+    var majorQueryString = "(";
+    majorQueryString += (major2Array.join(" OR "));
+    majorQueryString += ")";
+    console.log(majorQueryString);
+    return majorQueryString;
+  }
+};
 function regionStringBuild(){
 var regionString1Array = [];
 var regionChecked = false;
@@ -99,5 +108,21 @@ function form1QueryStringBuild(){
        form1QueryString = "WHERE ";
        form1QueryString += form1StringArray.join(" AND ");
        console.log(form1QueryString);
+       return form1QueryString;
        
+};
+
+function form2QueryStringBuild(){
+  
+  if(typeof collegeStringBuild() !== 'undefined') {
+    var form2CollegeQuery = "Select * FROM Main_Table WHERE ";
+    form2CollegeQuery+=collegeStringBuild();
+    console.log(form2CollegeQuery);
+  }
+  if(typeof majorStringBuild() !== 'undefined') {
+    var form2MajorQuery = "Select * FROM major_salary WHERE ";
+    form2MajorQuery+=majorStringBuild();
+    console.log(form2MajorQuery);
+  }
+  
 };

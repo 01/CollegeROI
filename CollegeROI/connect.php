@@ -23,7 +23,7 @@ if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
 }
 else{
-  echo "Worked";
+  //echo "Worked";
 }
 if (!$conn->set_charset("utf8")) {
     printf("Error loading character set utf8: %s\n", $conn->error);

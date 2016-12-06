@@ -122,7 +122,8 @@ $(function () {
 
                 //echo "id: " . $row["INSTNM"]."<br>";
             $netPriceNames[]=$row["INSTNM"];
-            $netPriceValues[]= $row["Net_Price"];
+            if(!$row["Net_Price"])$netPriceValues[]=0;
+             else $netPriceValues[] = $row["Net_Price"];
            echo "{";
             echo "name: '".$row["INSTNM"]."',";
            echo "data: [".$row["NP_0_30"].",".$row["NP_30_48"].",". $row["NP_48_75"].",".$row["NP_75_110"].",".$row["NP_110_Plus"]."]";
@@ -192,33 +193,34 @@ $(function () {
 $(function () {
     var chart = Highcharts.chart('container1', {
         yAxis: {
-             labels: {
-        formatter: function() {
-            return '$' +this.value ;
-        }
-    },
-},
+                  labels: {
+                      formatter: function() {
+                          return '$' +this.value ;
+                        }
+                  }
+          },
         title: {
             text: 'Average Net Price Comparison'
         },
-
         subtitle: {
             text: 'Comparison of Average Net Price of Attendence of Selected Colleges'
         },
-
         xAxis: {
-            categories: [<?php echo "'" .join($netPriceNames, "','"). "'" ?>]
+             categories: [<?php echo "'" .join($netPriceNames, "','"). "'" ?>]
         },
-
         series: [{
             type: 'column',
             colorByPoint: true,
-            data: [<?php echo join($netPriceValues, ',') ?>],
+            data: [<?php echo join($netPriceValues, ', ') ?>],
             showInLegend: false
-        }]
 
+
+            
+            
+        }]
     });
   })
+
 </script>
 
 

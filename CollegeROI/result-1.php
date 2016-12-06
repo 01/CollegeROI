@@ -16,7 +16,7 @@
  <?php
  
   $localtest = true;
-  $debug = true;
+  $debug = false;
   if(!$localtest){
     $servername = "localhost";
     $username = "id279319_admin";
@@ -89,9 +89,10 @@
             }
           }
         /**********************************************************************************************/  
-          if (isset($_GET["sqlQuery"])) {
-              $sql = $_GET["sqlQuery"];
-              //echo $sql;
+          if (isset($_GET["form1Query"])) {
+              
+              $sql = $_GET["form1Query"];
+               $sql1 = "Select * FROM Main_Table ".$sql;
               //echo '5';
           }else{
               //echo 'no variable received';
@@ -105,22 +106,39 @@
             $isPublicOptions[3]="Private Non Profit";*/
 
           }
-       
+
           $result = $conn->query($sql1);
 
 
           /**********************Average Aggregates Entire Database************************************************************/
-          $aggregateTotalQuery = "Select AVG(ADM_RATE) as avgADM, AVG(NET_PRICE) as avgNET, AVG(NP_0_30) as avgNP030, AVG(NP_30_48) as avgNP3048,
-            AVG(NP_48_75) as avgNP4875, AVG(NP_75_110) as avgNP7511, AVG(NP_110_Plus) as avgNP110P, AVG(AVG_COST) as avgAvgCost, AVG(IN_STATE) as avgInState,
-            AVG(OUT_STATE) as avgOutState, AVG(PCTFLOAN) as avgPCTFLOAN, AVG(UNEMP_RATE) as avgUNEMP, AVG(MD_EARN_WNE_P6) as avgMDP6, AVG(MD_EARN_WNE_P8) as avgMDP8, AVG(MD_EARN_WNE_P10) as avgMDP10, AVG(graduation_rate) as avgGradRate, AVG(GRAD_DEBT_MDN) as avgGradDebt ". $sql;
+        /*$aggregateTotalQuery = 'SELECT AVG(ADM_RATE) as avgADM, AVG(Net_Price) as avgNET, AVG(NP_0_30) as avgNP030, AVG(NP_30_48) as avgNP3048, AVG(NP_48_75) as avgNP4875, AVG(NP_75_110) as avgNP7511, AVG NP_110_Plus) as avgNP110P, AVG(AVG_COST) as avgAvgCost, AVG(IN_STATE) as avgInState, AVG(OUT_STATE) as avgOutState, AVG(PCTFLOAN) as avgPCTFLOAN, AVG(UNEMP_RATE) as avgUNEMP, AVG(MD_EARN_WNE_P6) as avgMDP6, AVG(MD_EARN_WNE_P8) as avgMDP8, AVG(MD_EARN_WNE_P10) as avgMDP10, AVG(graduation_rate) as avgGradRate, AVG(GRAD_DEBT_MDN) as avgGradDebt FROM Main_Table';
             $aggregateTotalResult = $conn->query($aggregateTotalQuery);
+            $row = $raggregateTotalResult->fetch_assoc();
+            $avgADM = $row["avgADM"];
+            $avgNET = $row["avgNET"];
+            $avgNP030 = $row["avgNP030"];
+            $avgNP3048 = $row["NP3048"];
+            $avgNP4875 = $row["NP4875"];
+            $avgNP7511 = $row["NP7511"];
+            $avgNP110P = $row["NP110P"];
+            $avgAvgCost = $row["avgAvgCost"];
+            $avgInState = $row["avgInState"];
+            $avgOutState = $row["avgOutState"];
+            $avgPCTFLOAN = $row["avgPCTFLOAN"];
+            $avgUNEMP = $row["avgUNEMP"];
+            $avgMDP6 = $row["avgMDP6"];
+            $avgMDP8 = $row["avgMDP8"];
+            $avgMDP10 = $row["avgMDP10"];
+            $avgGradRate = $row["avgGradeRate"];
+            $avgGradDebt = $row["avgGradDebt"];*/
+
+
         /***************************************************************************************************************************/
 
         /*********************Aggregates for College Search Results ***************************************************************/
-        $aggregateFromQuery = "Select MIN(ADM_RATE) as mostSelect, MIN(NET_PRICE) as minNET, MIN(NP_0_30) as minNP030, MIN(NP_30_48) as minNP3048,
+    /*    $aggregateFromQuery = "Select MIN(ADM_RATE) as mostSelect, MIN(NET_PRICE) as minNET, MIN(NP_0_30) as minNP030, MIN(NP_30_48) as minNP3048,
             MIN(NP_48_75) as minNP4875, MIN(NP_75_110) as minNP7511, MIN(NP_110_Plus) as minNP110P, MIN(AVG_COST) as minAvgCost, MIN(IN_STATE) as minInState,
-            MIN(OUT_STATE) as minOutState, MAX(PCTFLOAN) as maxPCTFLOAN, MIN(UNEMP_RATE) as minUNEMP, MAX(MD_EARN_WNE_P6) as maxMDP6, MAX(MD_EARN_WNE_P8) as maxMDP8, MAX(MD_EARN_WNE_P10) as maxMDP10, MAX(graduation_rate) as maxGradRate, MIN(GRAD_DEBT_MDN) as minGradDebt ".$sql;
-
+            MIN(OUT_STATE) as minOutState, MAX(PCTFLOAN) as maxPCTFLOAN, MIN(UNEMP_RATE) as minUNEMP, MAX(MD_EARN_WNE_P6) as maxMDP6, MAX(MD_EARN_WNE_P8) as maxMDP8, MAX(MD_EARN_WNE_P10) as maxMDP10, MAX(graduation_rate) as maxGradRate, MIN(GRAD_DEBT_MDN) as minGradDebt FROM (Select * FROM Main_Table ".$sql;*/
 
         /*************************************************************************************************************************************/    
           //echo $queryTest;
@@ -303,7 +321,7 @@
                                             <p style = "font-size: 12px">
                                                 $ $np3048
                                             </p>
-                                            <h4 style = "font-size: 12px">$48,000 - $75,000</h4>
+                                            <h4 style ="font-size: 12px">$48,000 - $75,000</h4>
                                             <p style = "font-size: 12px">
                                                 $ $np4875
                                             </p>

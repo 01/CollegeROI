@@ -1,8 +1,8 @@
 <?php include 'header.php'; ?>
-<?php include 'connect.php'; ?>
 <?php include 'sidebar.php'; ?>
 <?php include 'content.php'; ?>
-
+<?php include 'connect.php'; ?>
+<?php include 'autoquery.php'; ?>
 <?php
 
 $sql1 = "SELECT INSTNM FROM Main_Table";
@@ -21,6 +21,11 @@ while($row = $result1->fetch_assoc())
 } 
 $collegeList=json_encode($data1);
 }
+
+$sqlTest = "SELECT * FROM Main_Table WHERE (NET_PRICE <25000 AND NET_PRICE > 15000) AND (UGDS > 2000 AND UGDS < 15001) AND (ADM_RATE <1 AND ADM_RATE > 0)";
+$testResult = $conn->query($sqlTest);
+if(!$testResult) echo printf("Did Not Work!!!!!!!!!!!!");
+else echo printf("Work!!!!!!!!!!!!");
 $sql2 = "SELECT * FROM us_states";
 $result2 = $conn->query($sql2);
 if(!$result2){
@@ -56,13 +61,13 @@ $majorList=json_encode($data3);
 }
 $conn->close();
 ?> 
+
 <script type="text/javascript">
     var colleges = <?php echo $collegeList ?>;
     var states = <?php echo $stateList ?>;
     var majors = <?php echo $majorList ?>;
     //JSON.parse(colleges);
 </script>
-
   <div id="w">
   <h1>Form 1</h1>
  
@@ -225,3 +230,4 @@ $conn->close();
 
 
   </div><!-- @end #w -->
+  <?php include 'footer.php'; ?>
