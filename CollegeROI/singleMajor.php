@@ -26,7 +26,7 @@
  <?php
  
   $localtest = true;
-  $debug = true;
+  $debug = false;
   if(!$localtest){
     $servername = "localhost";
     $username = "id279319_admin";
@@ -55,9 +55,11 @@
           } else {
              // printf("Current character set: %s\n", $conn->character_set_name());
           }
-          if (isset($_GET["sqlQuery"])) {
-              $sql = $_GET["sqlQuery"];
-              //echo $sql;
+          if (isset($_GET["compareQuery"])) {
+              $sql = "SELECT * FROM Main_Table WHERE ";
+              $sql1 = $_GET["compareQuery"];
+              $sql = $sql.$sql1;
+              echo $sql;
               //echo '5';
           }else{
               //echo 'no variable received';
@@ -65,6 +67,7 @@
           if($debug==true){
             $sql = "SELECT * FROM Main_Table Limit 10";
           }
+          else{}
           $result = $conn->query($sql);
           if (!$result) {
             //echo "Could not successfully run query ($sql) from DB: " . mysql_error();

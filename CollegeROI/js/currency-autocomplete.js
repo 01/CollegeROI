@@ -25,6 +25,13 @@ $(function(){
       form2QueryStringBuild();
 
 });
+       $('#compareSubmit').click(function(){
+        console.log("Makes it HERE");
+     var compareQuery = resultComparisonStringBuild();
+     console.log(compareQuery);
+    window.location.href = "collegecomparisons.php?compareQuery=" +  compareQuery;
+
+});
 /************Form 1 Function ********************************************/
   // setup autocomplete function pulling from colleges[] array
   $('#collegeAuto1').autocomplete({

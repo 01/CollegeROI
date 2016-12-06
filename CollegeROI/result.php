@@ -10,6 +10,8 @@
  
   <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
   <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="js/currency-autocomplete.js" type="text/javascript"></script>
+        <script src="js/string-build.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwqtFDpH6Vj3zIF5YJh3OidKS7Jy0rbKE"></script>
@@ -100,7 +102,7 @@
               //echo 'no variable received';
           }
           if($debug==true){
-            $sql = "FROM Main_Table Limit 50";
+            $sql = "FROM Main_Table Limit 30";
             $sql1 = "Select * ".$sql;
            /* $isPublicOptions =array();
             $isPublicOptions[1]="Public";
@@ -138,6 +140,7 @@
             }
             if ($result->num_rows > 0) {
 
+  echo '<button type="submit" class="btn btn-primary" id= "compareSubmit">Submit</button><br>';
           while($row = $result->fetch_assoc()) {
                 //echo "id: " . $row["INSTNM"]."<br>";
             /****** Storing all necessary values for each tuple Each iteration of loop is single tuple *****************/

@@ -45,6 +45,23 @@ $('input[id="regionBox"]').each(function(){
   return regionString;
 }};
 
+function resultComparisonStringBuild(){
+  var resultComparisonStringArray = [];
+var compareChecked = false;
+$('input[id="compare"]').each(function(){
+    if($(this).is(":checked")){
+      compareChecked= true;
+     resultComparisonStringArray.push("UNITID = "+$(this).val());
+    }});
+    if(compareChecked){
+      var comparisonString = "(";
+      comparisonString +=resultComparisonStringArray.join(" OR ");
+      comparisonString += ")";
+      console.log(comparisonString);
+      return comparisonString;
+    }
+};
+
 function isPublicStringBuild(){
 var isPublicString1Array = [];
 var isPublicChecked = false;
