@@ -126,7 +126,7 @@ $(function () {
            echo "{";
             echo "name: '".$row["INSTNM"]."',";
            echo "data: [".$row["NP_0_30"].",".$row["NP_30_48"].",". $row["NP_48_75"].",".$row["NP_75_110"].",".$row["NP_110_Plus"]."]";
-            if($i==number){echo "}";}
+            if($i==$number){echo "}";}
             else {echo "},";}
               $i++;
     }?>

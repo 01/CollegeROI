@@ -1,7 +1,5 @@
-<!doctype html>
-<html lang="en-US">
-<head>
-  
+
+
   <title>Input Autocomplete Suggestions Demo</title>
 <link href='css/bootstrap.css' rel='stylesheet' />
     <link href='css/rotating-card.css' rel='stylesheet' />
@@ -14,7 +12,6 @@
   <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
 
-</head>
 
  <?php
  
