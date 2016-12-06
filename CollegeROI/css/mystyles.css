@@ -10,4 +10,11 @@
   	padding-top: 1000px;
   }
 
-  .
+  .movetop{
+    position: absolute;
+    top: 10px;
+  }
+  .moveright{
+    position: relative;
+    right: -100px;
+  }
