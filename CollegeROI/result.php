@@ -10,8 +10,6 @@
  
   <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
   <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
-    <script src="js/currency-autocomplete.js" type="text/javascript"></script>
-        <script src="js/string-build.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwqtFDpH6Vj3zIF5YJh3OidKS7Jy0rbKE"></script>
@@ -102,7 +100,7 @@
               //echo 'no variable received';
           }
           if($debug==true){
-            $sql = "FROM Main_Table Limit 30";
+            $sql = "FROM Main_Table Limit 50";
             $sql1 = "Select * ".$sql;
            /* $isPublicOptions =array();
             $isPublicOptions[1]="Public";
@@ -140,7 +138,6 @@
             }
             if ($result->num_rows > 0) {
 
-  echo '<button type="submit" class="btn btn-primary" id= "compareSubmit">Submit</button><br>';
           while($row = $result->fetch_assoc()) {
                 //echo "id: " . $row["INSTNM"]."<br>";
             /****** Storing all necessary values for each tuple Each iteration of loop is single tuple *****************/
@@ -191,22 +188,15 @@
                             initialize($collegeLat, $collegeLong,$collegeUnitID);</script>
                         </div>
                         <div class="content">
-                        <img style="display:inline-block" src="//logo.clearbit.com/$collegeURL?size=80">
-                            <div style="display:inline-block; width : 70%;">
-
-                              
-                                <h3 class="name"><b>$collegeName</b></h3>
-                                
-                                <p class="text-center profession">Check out what we have to offer on the back</p> 
+                            <div class="">
+                                <h3 class="name">Come check out what we have to offer at</h3>
+                                <p class="profession"><b>$collegeName</b></p>
+                                <p class="text-center">Check out what we have to offer on the back</p>
+                                <br>
                             </div>
-                              <label class="moveright custom-control custom-checkbox">
-                                          <input type="checkbox" value= "$collegeUnitID" id= "compare" class="custom-control-input">
-                                          <span class="custom-control-indicator"></span>
-                                          <span class="custom-control-description">add for comparison</span>
-                                        </label>
 
                             <div class="footer">
-                                <div class="social-links text-center">
+                                <div class="social-links text-center ttt">
                                 <a href="http://$collegeURL"> $collegeName Website </a>
                             </div>
                              <button class="btn btn-simple" onclick="rotateCard(this)">
@@ -223,13 +213,6 @@
                                   <li><a data-toggle="tab" href="#menu1$collegeUnitID">Stats</a></li>
                                   <li><a data-toggle="tab" href="#menu2$collegeUnitID">Cost</a></li>
                                   <li><a data-toggle="tab" href="#menu3$collegeUnitID">Salary</a></li>
-                                  <li class="movetop">
-                                        <label class="custom-control custom-checkbox">
-                                          <input type="checkbox" value= "$collegeUnitID" id= "compare" class="custom-control-input">
-                                          <span class="custom-control-indicator"></span>
-                                          <span class="custom-control-description">add for comparison</span>
-                                        </label>
-                                  </li>
                                 </ul>
                         </div>
                         <div class="content">
@@ -383,7 +366,6 @@
                             <button class="btn btn-simple" rel="tooltip" title="Flip Card" onclick="rotateCard(this)">
                                 <i class="fa fa-reply"></i> Back
                             </button>
-                            
                         </div>
                         </div>
                     </div> <!-- end back panel -->
