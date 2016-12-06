@@ -188,15 +188,17 @@
                             initialize($collegeLat, $collegeLong,$collegeUnitID);</script>
                         </div>
                         <div class="content">
-                            <div class="">
-                                <h3 class="name">Come check out what we have to offer at</h3>
-                                <p class="profession"><b>$collegeName</b></p>
-                                <p class="text-center">Check out what we have to offer on the back</p>
-                                <br>
+                        <img style="display:inline-block" src="//logo.clearbit.com/$collegeURL?size=80">
+                            <div style="display:inline-block; width : 70%;">
+
+                              
+                                <h3 class="name"><b>$collegeName</b></h3>
+                                
+                                <p class="text-center profession">Check out what we have to offer on the back</p> 
                             </div>
 
                             <div class="footer">
-                                <div class="social-links text-center ttt">
+                                <div class="social-links text-center">
                                 <a href="http://$collegeURL"> $collegeName Website </a>
                             </div>
                              <button class="btn btn-simple" onclick="rotateCard(this)">
