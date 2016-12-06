@@ -1,8 +1,8 @@
 body {
-	margin-top: 60px;
-	font-size: 14px;
-	font-family: "Helvetica Nueue",Arial,Verdana,sans-serif;
-	background-color: #E5E9ED;
+    margin-top: 60px;
+    font-size: 14px;
+    font-family: "Helvetica Nueue",Arial,Verdana,sans-serif;
+    background-color: #E5E9ED;
 }
 .btn:hover,
 .btn:focus,
@@ -11,7 +11,7 @@ body {
 }
 /* entire container, keeps perspective */
 .card-container {
-	  -webkit-perspective: 800px;
+      -webkit-perspective: 800px;
    -moz-perspective: 800px;
      -o-perspective: 800px;
         perspective: 800px;
@@ -20,7 +20,7 @@ body {
 /* flip the pane when hovered */
 .card-container:not(.manual-flip):hover .card,
 .card-container.hover.manual-flip .card{
-	-webkit-transform: rotateY( 180deg );
+    -webkit-transform: rotateY( 180deg );
 -moz-transform: rotateY( 180deg );
  -o-transform: rotateY( 180deg );
     transform: rotateY( 180deg );
@@ -29,14 +29,14 @@ body {
 
 .card-container.static:hover .card,
 .card-container.static.hover .card {
-	-webkit-transform: none;
+    -webkit-transform: none;
 -moz-transform: none;
  -o-transform: none;
     transform: none;
 }
 /* flip speed goes here */
 .card {
-	 -webkit-transition: -webkit-transform .5s;
+     -webkit-transition: -webkit-transform .5s;
    -moz-transition: -moz-transform .5s;
      -o-transition: -o-transform .5s;
         transition: transform .5s;
@@ -44,30 +44,30 @@ body {
    -moz-transform-style: preserve-3d;
      -o-transform-style: preserve-3d;
         transform-style: preserve-3d;
-	position: relative;
+    position: relative;
 }
 
 /* hide back of pane during swap */
 .front, .back {
-	-webkit-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
    -moz-backface-visibility: hidden;
      -o-backface-visibility: hidden;
         backface-visibility: hidden;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-color: #FFF;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #FFF;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
 }
 
 /* front pane, placed above back */
 .front {
-	z-index: 2;
+    z-index: 2;
 }
 
 /* back, initially hidden pane */
 .back {
-		-webkit-transform: rotateY( 180deg );
+        -webkit-transform: rotateY( 180deg );
    -moz-transform: rotateY( 180deg );
      -o-transform: rotateY( 180deg );
         transform: rotateY( 180deg );
@@ -88,9 +88,9 @@ body {
     color: #444444;
 }
 .card-container, .front, .back {
-	width: 100%;
-	height: 460px;
-	border-radius: 4px;
+    width: 100%;
+    height: 460px;
+    border-radius: 4px;
 }
 .card .cover{
     height: 200px;
@@ -181,14 +181,14 @@ body {
 }
 
 .card .stats-container{
-	width: 100%;
-	margin-top: 30px;
+    width: 100%;
+    margin-top: 30px;
 }
 .card .stats{
-	display: block;
-	float: left;
-	width: 33.333333%;
-	text-align: center;
+    display: block;
+    float: left;
+    width: 33.333333%;
+    text-align: center;
 }
 .raise{
     margin-top: -135px;
@@ -198,17 +198,17 @@ body {
 }
 
 .card .stats:first-child{
-	border-right: 1px solid #EEEEEE;
+    border-right: 1px solid #EEEEEE;
 }
 .card .stats:last-child{
-	border-left: 1px solid #EEEEEE;
+    border-left: 1px solid #EEEEEE;
 }
 .card .stats h4{
-	font-weight: 300;
-	margin-bottom: 5px;
+    font-weight: 300;
+    margin-bottom: 5px;
 }
 .card .stats p{
-	color: #777777;
+    color: #777777;
 }
 /*      Just for presentation        */
 
@@ -227,8 +227,8 @@ body {
     margin: 0;
 }
 .space-30{
-	height: 30px;
-	display: block;
+    height: 30px;
+    display: block;
 }
 .space-50{
     height: 50px;

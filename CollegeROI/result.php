@@ -196,7 +196,7 @@
                             </div>
 
                             <div class="footer">
-                                <div class="social-links text-center ttt">
+                                <div class="social-links text-center">
                                 <a href="http://$collegeURL"> $collegeName Website </a>
                             </div>
                              <button class="btn btn-simple" onclick="rotateCard(this)">
