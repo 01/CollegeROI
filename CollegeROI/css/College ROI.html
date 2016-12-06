@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://localhost:3000/top10.php -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>College ROI</title>
+  
+	<!-- stylesheets -->
+		
+		<script src="./College ROI_files/canvasjs.min.js"></script>
+  <link rel="shortcut icon" href="http://designshack.net/favicon.ico">
+  <link rel="icon" href="http://designshack.net/favicon.ico">
+  <link href="./College ROI_files/style.css" rel="stylesheet">
+  <link href="./College ROI_files/bootstrap.min.css" rel="stylesheet">
+
+		<link href="./College ROI_files/font-awesome.min.css" rel="stylesheet">
+		
+    <link rel="stylesheet" href="./College ROI_files/icon">
+  <link rel="stylesheet" href="./College ROI_files/material.indigo-pink.min.css">
+      <link href="./College ROI_files/jquery-ui.css" rel="stylesheet">
+       <script type="text/javascript" src="./College ROI_files/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="./College ROI_files/materialize.js"></script>
+     <script src="./College ROI_files/jquery-1.10.2.js"></script>
+      <script src="./College ROI_files/jquery-ui.js"></script>
+    
+  <!--<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>-->
+  <script type="text/javascript" src="./College ROI_files/jquery.autocomplete.min.js"></script>
+  <script type="text/javascript" src="./College ROI_files/currency-autocomplete.js"></script>
+  <script type="text/javascript" src="./College ROI_files/addinput.js"></script>
+  <script type="text/javascript" src="./College ROI_files/slider.js"></script>
+  <script type="text/javascript" src="./College ROI_files/string-build.js"></script>
+  <script src="./College ROI_files/canvasjs.min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="./College ROI_files/bootstrap.min(1).css">
+
+
+<!-- Latest compiled JavaScript -->
+<script src="./College ROI_files/bootstrap.min.js"></script>
+
+
+<script>
+			$(function () {
+				// #sidebar-toggle-button
+				$('#sidebar-toggle-button').on('click', function () {
+						$('#sidebar').toggleClass('sidebar-toggle');
+						$('#page-content-wrapper').toggleClass('page-content-toggle');	
+						fireResize();					
+				});
+				
+				// sidebar collapse behavior
+				$('#sidebar').on('show.bs.collapse', function () {
+					$('#sidebar').find('.collapse.in').collapse('hide');
+				});
+				
+				// To make current link active
+				var pageURL = $(location).attr('href');
+				var URLSplits = pageURL.split('/');
+
+				//console.log(pageURL + "; " + URLSplits.length);
+				//$(".sub-menu .collapse .in").removeClass("in");
+
+				if (URLSplits.length === 5) {
+					var routeURL = '/' + URLSplits[URLSplits.length - 2] + '/' + URLSplits[URLSplits.length - 1];
+					var activeNestedList = $('.sub-menu > li > a[href="' + routeURL + '"]').parent();
+
+					if (activeNestedList.length !== 0 && !activeNestedList.hasClass('active')) {
+						$('.sub-menu > li').removeClass('active');
+						activeNestedList.addClass('active');
+						activeNestedList.parent().addClass("in");
+					}
+				}
+
+				function fireResize() {
+					if (document.createEvent) { // W3C
+						var ev = document.createEvent('Event');
+						ev.initEvent('resize', true, true);
+						window.dispatchEvent(ev);
+					}
+					else { // IE
+						element = document.documentElement;
+						var event = document.createEventObject();
+						element.fireEvent("onresize", event);
+					}
+            	}
+			})
+		</script>
+		
+	</head>
+	
+	<body>
+		<!-- header -->
+		<nav id="header" class="navbar navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<div id="sidebar-toggle-button">
+						<i class="fa fa-bars" aria-hidden="true"></i>
+					</div>
+					<div class="brand">
+						<a href="http://localhost:3000/">
+							College ROI <span class="hidden-xs text-muted">CS 344</span>
+						</a>
+					</div>
+					
+				</div>
+			</div>
+		</nav> 
+		<!-- /header -->         Worked!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<!-- href links different in integration, collaspe in class added server side in integration --> 
+		<!-- sidebar --> 
+		<div id="sidebar" class="sidebar-toggle">
+			<ul class="nav nav-sidebar">
+					<li>
+							<a href="http://localhost:3000/form1.php">
+									<i class="fa fa-home" aria-hidden="true"></i>
+									<span>Form 1</span>
+							</a>
+					</li>
+					<li role="separator" class="divider"></li>
+					<li>
+							<a href="http://localhost:3000/form2.php">
+									<i class="fa fa-home" aria-hidden="true"></i>
+									<span>Form 2</span>
+							</a>
+					</li>
+					<li role="separator" class="divider"></li>
+					<li>
+							<a href="http://localhost:3000/form3.php">
+									<i class="fa fa-home" aria-hidden="true"></i>
+									<span>Form 3</span>
+							</a>
+					</li>
+					<li role="separator" class="divider"></li>
+
+				
+					<!-- chart types -->
+					<li data-toggle="collapse" href="#chart-types" aria-expanded="true" aria-controls="chart-types">
+						<a href="http://localhost:3000/top10.php#"> 
+							<i class="fa fa-area-chart" aria-hidden="true"></i><span>CHART TYPES</span>
+						</a>
+					</li>
+
+					
+					<!-- /chart types -->
+
+					<li role="separator" class="divider"></li>
+
+					<!--  features -->
+					<li data-toggle="collapse" href="#features" aria-expanded="false" aria-controls="features">
+						<a href="http://localhost:3000/top10.php#">
+							<i class="fa fa-flask" aria-hidden="true"></i>
+							<span>Keep for Now</span>
+						</a>
+					</li>
+
+					<li>
+						<ul id="features" class="sub-menu collapse">
+                                             
+							<li><a href="http://localhost:3000/features/multi-series.php">Multiseries Chart</a></li>
+						</ul>
+					</li>
+					<!--  /features -->
+
+					<li role="separator" class="divider"></li>
+			</ul>
+		</div>
+		<!-- /sidebar -->    <div id="page-content-wrapper" class="page-content-toggle">
+        <div class="container ">            
+
+            <div class="row">
+                <div id="content" class="col-md-8 col-md-offset-1 col-xs-12"><h1>Column Chart</h1>
+	<div id="chartContainer"></div>
+
+<h4>Popout</h4>
+
+
+ <p class="caption">
+          To create a popout collapsible, just add the class <code class="language-markup">popout</code>.
+        </p>
+        <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
+          <li class="active">
+            <div class="collapsible-header active"><i class="material-icons">subtitles</i>Top 10 Easiest and Hardest Schools to Get Into</div>
+            <div class="collapsible-body" style="display: block;">
+             <p> 
+             </p><pre class="tab">  <u>Top 10 Hardest Schools</u>                         <u>Top 10 Easiest Schools</u>
+<p style="display:inline">1  Curtis Institute of Music 5.05 % </p>                <p style="display:inline">The University of Texas at El Paso 99.89 % </p><p></p><p style="display:inline">2  Stanford University 5.09 % </p>                <p style="display:inline">University of Wisconsin Colleges 99.76 % </p><p></p><p style="display:inline">3  Harvard University 5.96 % </p>                <p style="display:inline">Brigham Young University-Idaho 99.62 % </p><p></p><p style="display:inline">4  Yale University 6.3 % </p>                <p style="display:inline">MIAT College of Technology 99.52 % </p><p></p><p style="display:inline">5  Columbia University in the City of New York 6.95 % </p>                <p style="display:inline">Casal Institute of Nevada 99.49 % </p><p></p><p style="display:inline">6  Princeton University 7.44 % </p>                <p style="display:inline">Ottawa University-Ottawa 99.47 % </p><p></p><p style="display:inline">7  Massachusetts Institute of Technology 7.88 % </p>                <p style="display:inline">Nyack College 99.36 % </p><p></p><p style="display:inline">8  College of the Ozarks 8.31 % </p>                <p style="display:inline">Edinboro University of Pennsylvania 99.3 % </p><p></p><p style="display:inline">9  The Juilliard School 8.43 % </p>                <p style="display:inline">McPherson College 99.28 % </p><p></p><p style="display:inline">10  Brown University 8.74 % </p>                <p style="display:inline">Lyndon State College 99.14 % </p><p></p></pre>
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<p></p></div>
+          </li>
+          <li class="">
+            <div class="collapsible-header"><i class="material-icons">games</i>Second</div>
+            <div class="collapsible-body" style="display: none;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">library_books</i>Third</div>
+            <div class="collapsible-body" style="display: none;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
+          </li>
+        </ul></div></div></div></div><div class="hiddendiv common"></div></body></html>
