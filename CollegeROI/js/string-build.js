@@ -1,11 +1,4 @@
 
-/**************Initization of Forms Arrays **************************************/
-var state1Array = [];
-var college1Array = [];
-var major2Array = [];
-
-/********************************************************************************/
-
 function collegeStringBuild (){
   if(college1Array.length>0){
       var collegeQueryString = "(";
@@ -93,15 +86,6 @@ function admStringBuild(){
   return admString;
 };
 
-function stringBuilders(){
-      var builtStringsArray = [];
-      collegeStringBuild();
-       priceStringBuild();
-       stateStringBuilder();
-       popStringBuild();
-       isPublicStringBuild();
-       admStringBuild();
-}
 
 function form1QueryStringBuild(){
       
@@ -117,53 +101,3 @@ function form1QueryStringBuild(){
        console.log(form1QueryString);
        
 };
-
-
-
-
-$(function(){
- 
-   $('#cancelState').click(function(){
-       $("span:has(junk)").remove();
-});
-
-    $('#submit1').click(function(){
-      stringBuilders();
-      form1QueryStringBuild();
-
-});
-/************Form 1 Function ********************************************/
-  // setup autocomplete function pulling from colleges[] array
-  $('#collegeAuto1').autocomplete({
-    lookup: colleges,
-    onSelect: function (suggestion) {
-      college1Array.push("INSTNM = '" +suggestion.value + "'");
-      console.log(college1Array);
-      $('#college1').append('<span class="mdl-chip mdl-chip--deletable"> <span class="mdl-chip__text">' + suggestion.value 
-      +'</span> <a href="#" class="mdl-chip__action"><i class="material-icons">cancel</i></button></span>');
-    }
-  });
-
-   $('#stateAuto1').autocomplete({
-    lookup: states,
-    onSelect: function (suggestion) {
-      state1Array.push("STATE = '"+suggestion.data + "'");
-      console.log(state1Array);
-       $('#state1').append('<span class="mdl-chip mdl-chip--deletable"> <span class="mdl-chip__text">' + suggestion.value 
-      +'</span> <a href="#" class="mdl-chip__action"><i class="material-icons">cancel</i></button></span>');
-    }
-  });
-
-/*****************Form 2 Functions **********************************************/
-  $('#majorAuto2').autocomplete({
-    lookup: majors,
-    onSelect: function (suggestion) {
-      var thehtml = '<span class="mdl-chip mdl-chip--deletable"> <span class="mdl-chip__text">' + suggestion.value 
-      +'</span> <button type="button" class="mdl-chip__action" id= "cancelState"><i class="material-icons">cancel</i></button></span>';
-      $('#majorOutputbox').append(thehtml);
-      majorArray.push(suggestion.value);
-    }
-  });
-  
-});
-
