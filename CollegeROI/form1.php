@@ -63,7 +63,7 @@ $conn->close();
     //JSON.parse(colleges);
 </script>
 
-  <div id="w">
+  <div id="w mainbody">
   <h1>Form 1</h1>
  
    
