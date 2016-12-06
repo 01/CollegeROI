@@ -13,33 +13,41 @@
             <div class="collapsible-header"><i class="material-icons">subtitles</i>Top 10 Easiest and Hardest Schools to Get Into</div>
             <div class="collapsible-body">
              <p> 
-             <pre class="tab"><u>Top 10 Hardest Schools</u>                   <u>Top 10 Easiest Schools</u>
+             <pre class="tab">  <u>Top 10 Hardest Schools</u>                         <u>Top 10 Easiest Schools</u>
 <?php
 $debug = false;
 $top10AdmEasyQuery = "Select INSTNM, ADM_RATE From Main_Table WHERE (ADM_RATE < 1) ORDER BY ADM_RATE DESC LIMIT 10";
 $top10AdmHardQuery = "Select INSTNM, ADM_RATE From Main_Table WHERE (ADM_RATE > 0) ORDER BY ADM_RATE ASC LIMIT 10";
           
-          $top10AdmEasyResult= $conn->query($top10AdmEasyQuery);
+          $top10EasyResult= $conn->query($top10AdmEasyQuery);
           $top10HardResult= $conn->query($top10AdmHardQuery);
           if($debug){
-                $top10AdmEasyResult= $conn->query("SELECT * FROM Main_Table LIMIT 10");
+                $top10EasyResult= $conn->query("SELECT * FROM Main_Table LIMIT 10");
                 $top10HardResult= $conn->query("SELECT * FROM Main_Table LIMIT 10");
           }
          
-          if(!$top10AdmEasyResult|| !$top10HardResult){
+          if(!$top10EasyResult|| !$top10HardResult){
             echo "Could not find top 10 Admission Rates";
           }
           else{
           $i = 1;
-            while($row1 = $top10AdmEasyResult->fetch_assoc() && $row2 = $top10HardResult->fetch_assoc()) {
+            while($row1 =  $top10EasyResult->fetch_assoc()) {
+              $row2 = $top10HardResult->fetch_assoc();
+              
               $schoolEasy = $row1["INSTNM"];
-              $admEasy = $row1["ADM_RATE"];
-                $schoolHard = $row2["INSTNM"];
+              $admEasy = $row1["ADM_RATE"] *100;
+              $schoolHard = $row2["INSTNM"];
+              $admEasy = $row2["ADM_RATE"] * 100;
              
-              echo "1.) ";
+              echo '<p style="display:inline">';
+              if(i<10)echo "$i  ";
+              else echo "$i.";
               echo $schoolHard;
-              echo "  ";echo $row1["INSTNM"];
-              echo "<br>";
+              echo " $admEasy % </p>";
+              echo '                <p style="display:inline">';
+              echo $schoolEasy;
+              echo "</p><br>";
+              $i++;
             //  echo "<pre class="tab">1.) $schoolHard  $admHard %    $schoolEasy $admEasy % </pre><br>";
                
             }
