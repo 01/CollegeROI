@@ -13,7 +13,7 @@
 
 
           
-            $sql = "FROM Main_Table Limit 2";
+            $sql = "FROM Main_Table Limit 20";
             $sql1 = "Select * ".$sql;
 
             $result = $conn->query($sql1);
@@ -23,6 +23,7 @@
             echo 'ended up here';
             exit;
             }
+            echo "<br>";
             if ($result->num_rows > 0) {
 	            while($row = $result->fetch_assoc()){
 	            	$collegeName = $row["INSTNM"];
@@ -30,9 +31,10 @@
 	            	$p8ratio = $row["MD_EARN_WNE_P8"]/$avgMDP8;
 	            	$p10ratio = $row["MD_EARN_WNE_P10"]/$avgMDP10;
 	            	echo 'College: '.$collegeName;
-	            	echo ' P6ratio: '.$p6ratio;
-	            	echo ' P8ratio: '.$p8ratio;
-	            	echo ' P10ratio: '.$p10ratio;
+	            	echo '  P6ratio: '.$p6ratio;
+	            	echo '  P8ratio: '.$p8ratio;
+	            	echo '  P10ratio: '.$p10ratio;
+                    echo "<br>";
 
 	            }
         	}
