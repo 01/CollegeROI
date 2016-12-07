@@ -65,8 +65,8 @@ $top10LowMedDebtQuery = "Select INSTNM, DEBT_MDN From Main_Table WHERE (DEBT_MDN
 $top10HighMedDebtQuery = "Select INSTNM, DEBT_MDN From Main_Table WHERE (DEBT_MDN > 9) ORDER BY DEBT_MDN DESC LIMIT 10"; 
 $top10LowMedDebtResult= $conn->query($top10LowMedDebtQuery);
 $top10HighMedDebtResult= $conn->query($top10HighMedDebtQuery);
-$top10LowGenderEQQuery = "Select INSTNM, (FEMALE_DEBT_MDN / MALE_DEBT_MDN) as FemaleToMale From Main_Table WHERE (DEBT_MDNc> 0) ORDER BY DEBT_MDN ASC LIMIT 10";  
-$top10HighGenderEQQuery = "Select INSTNM, (FEMALE_DEBT_MDN / MALE_DEBT_MDN) as FemaleToMale From Main_Table WHERE (DEBT_MDN > 9) ORDER BY DEBT_MDN DESC LIMIT 10"; 
+$top10LowGenderEQQuery = "Select INSTNM, (FEMALE_DEBT_MDN / MALE_DEBT_MDN) as FemaleToMale From Main_Table WHERE (MALE_DEBT_MDN> 0) ORDER BY DEBT_MDN ASC LIMIT 10";  
+$top10HighGenderEQQuery = "Select INSTNM, (FEMALE_DEBT_MDN / MALE_DEBT_MDN) as FemaleToMale From Main_Table WHERE (MALE_DEBT_MDN > 0) ORDER BY DEBT_MDN DESC LIMIT 10"; 
 $top10LowGenderEQResult= $conn->query($top10LowGenderEQQuery);
 $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
 /*
@@ -655,6 +655,50 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
               $schoolValue = $row["DEBT_MDN"];
               echo '<p style="display:inline">'."$i.) $school: ";
               echo "$$schoolValue</p><br>";
+              $i++;      
+            }
+          }
+          ?>
+                </p></div>
+      </li>
+
+
+       <li>
+                <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Lowest Gender Equality (Female/Male) Ratio</div>
+                <div class="collapsible-body"><p>
+                  <?php          
+        if(!$top10LowGenderEQResult){
+            echo "Could not find top 10 Lowest Cost Schools";
+          }
+          else{
+          $i = 1;
+            while($row =  $top10LowGenderEQResult->fetch_assoc()) {
+              $school = $row["INSTNM"];
+              $schoolValue = $row["FemaleToMale"];
+              echo '<p style="display:inline">'."$i.) $school: ";
+              echo "$schoolValue</p><br>";
+              $i++;      
+            }
+          }
+          ?>
+                </p></div>
+      </li>
+
+
+      <li>
+                <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Highest Gender Equality (Female/Male) Ratio</div>
+                <div class="collapsible-body"><p>
+                  <?php          
+        if(!$top10HighGenderEQResult){
+            echo "Could not find top 10 Lowest Cost Schools";
+          }
+          else{
+          $i = 1;
+            while($row =  $top10HighGenderEQResult->fetch_assoc()) {
+              $school = $row["INSTNM"];
+              $schoolValue = $row["FemaleToMale"];
+              echo '<p style="display:inline">'."$i.) $school: ";
+              echo "$schoolValue</p><br>";
               $i++;      
             }
           }
