@@ -147,7 +147,7 @@ $conn->close();
          </fieldset>   
        </label>
    </div>
-  
+
   <div class="form-group">
     <legend>Choose a Region that you want to go to school in</legend>
 
@@ -216,11 +216,21 @@ $conn->close();
                             </label>
                         </div>
   </div>
-
+  <div class = "form-group" id = "state1">
+    <legend>Please enter your State</legend>
+      <div>
+        <form>
+          <input type="text" class="biginput state-auto form-control" id="stateAuto1">
+        </form>
+        </div>
+  </div>
+  <br>
+  <div class = "form-group">
 
   <button type="submit" class="btn btn-primary" id= "submit1">Submit</button>
+  </div>
 </form>
-    </div><!-- @end #content -->
+    <!-- @end #content -->
 
 
 
