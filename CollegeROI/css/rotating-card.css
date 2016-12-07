@@ -190,6 +190,18 @@ body {
     width: 33.333333%;
     text-align: center;
 }
+.card .stats1{
+    display: block;
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+.card .stats2{
+    display: block;
+    float: left;
+    width: 100%;
+    text-align: left;
+}
 .raise{
     margin-top: -135px;
 }

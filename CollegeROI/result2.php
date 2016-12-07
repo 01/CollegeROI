@@ -184,12 +184,14 @@
             $twoYearSalary = $row["MD_EARN_WNE_P6"];
 
             $eightYearSalary = $row["MD_EARN_WNE_P10"];
-            $sixYearSalar = $row["MD_EARN_WNE_P8"];
+            $sixYearSalary = $row["MD_EARN_WNE_P8"];
             $gradRate = $row["graduation_rate"] * 100;
             $region = $regionOptions[$row["REGION"]];
             $environmentName = $environmentOptions[$row["type_of_enviornment"]]["ENV_NAME"];
             $environmentDESC = $environmentOptions[$row["type_of_enviornment"]]["ENV_DESC"];
             $urlImg = substr($collegeURL,4);
+
+            $majorName = "Computer Science";
             /******************************************************************************************************************/
               echo <<< EOT
  <!-- Card go here-->
@@ -200,40 +202,42 @@
                 <div class="card">
                     <div class="front">
                         <div class="cover2">
-                        <img style="display:inline-block" src="//logo.clearbit.com/$collegeURL?size=80">
-                            <div style="display:inline-block; width : 70%;">
-                              
-                                <h3 class="name"><b>$collegeName</b></h3>
-                                
-                                <p class="text-center profession">Check out what we have to offer on the back</p> 
+                        <img style="display:inline-block" src="//logo.clearbit.com/$collegeURL?size=70">
+                            <div style="display:inline-block; width : 80%;">
+                                   
+                             <p class="text-center profession"><p align = "center"><h3 class="name"><b>$collegeName</b></h3><b>$isPublic</b> College located in the $region </p></p>
                             </div>
 
                         </div>
                         <div class="content">
                               <div class="stats-container">
-                                    <div class="stats">
-                                        <h4>235</h4>
+                                    <div class="stats1">
+                                        <h5>   Average Early Career Salary</h5>
+                                        <h5><b> $majorName </b></h5>
                                         <p>
-                                            Followers
+                                        <font color="green"><b>$ $twoYearSalary</b></font>
                                         </p>
                                     </div>
-                                    <div class="stats">
-                                        <h4>114</h4>
+                              
+                                    <div class="stats1">
+                                        <h5>Average Mid Career Salary</h5>
+                                         <h5><b> $majorName </b></h5>
                                         <p>
-                                            Following
-                                        </p>
-                                    </div>
-                                    <div class="stats">
-                                        <h4>35</h4>
-                                        <p>
-                                            Projects
+                                             <font color="green"><b>$ $eightYearSalary</b></font>
                                         </p>
                                     </div>
                                 </div>
                         </div>
-                        
-                            
-
+                        <br>
+                            <div class="content">
+                              <div class="stats-container2">
+                                    <div class="stats2">
+                                        <h3 align = "center">  Net Price Based on Income</h3>
+                                       <pre> <h5> <b>$0-30K : <font color="red"> $ $np030 </b></font><b>     $30-48K : <font color="red">$ $np3048 </b></h5></font><h5> <b>$48-75K : <font color="red"> $ $np4875 </b></font><b>    $75-110K : <font color="red">$ $np7511 </b></h5></font><h5> <b>1110K+ : <font color="red"> $ $np110P </b></h5></font></pre>
+                                    </div>
+                                </div>
+                        </div>
+<br><br>
                             <div class="footer">
                                 <div class="social-links text-center">
                                 <a href="http://$collegeURL"> $collegeName Website </a>
@@ -247,13 +251,12 @@
                     </div> <!-- end front panel -->
                     <div class="back">
                         <div class="header">
-                            <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
+                            <h5 class="motto">"Find Out How Long The Banks Owns You!!"</h5>
                         </div>
                         <div class="content">
                             <div class="main">
                                 <h4 class="text-center">Job Description</h4>
-                                <p class="text-center">Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p>
-
+                                <p class="text-center">Every Dollar Counts.</p>
                                 <div class="stats-container">
                                     <div class="stats">
                                         <h4>235</h4>
