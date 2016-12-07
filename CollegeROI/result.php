@@ -3,16 +3,9 @@
 <?php include 'sidebar.php'; ?>
 
   <title>Input Autocomplete Suggestions Demo</title>
-<link href='css/bootstrap.css' rel='stylesheet' />
+  <link href='css/bootstrap.css' rel='stylesheet' />
     <link href='css/rotating-card.css' rel='stylesheet' />
 
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
- 
-  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-  <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
-<script src="js/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwqtFDpH6Vj3zIF5YJh3OidKS7Jy0rbKE"></script>
      <link href="css/mystyles.css" rel="stylesheet">
@@ -22,6 +15,11 @@
       <p style="text-align:center;">
           Select a couple of colleges for comparison
       </p>
+            <p style="text-align:center;">
+          
+      
+      <form><input type="text" name="currency" class="biginput form-control moveright1" id="majorAuto2"></form>
+      </p>
       <p class="text-center">
         <button class="btn btn-primary" id= "compareSubmit">
           Submit
@@ -29,6 +27,65 @@
         </p>
   <br>
   <div class="col-sm-offset-2">
+  <?php
+
+$sql1 = "SELECT INSTNM FROM Main_Table";
+$result1 = $conn->query($sql1);
+if (!$result1) {
+   echo printf("Could not successfully run query ($sql1) from DB: %s", $dbname);
+   
+}
+else{
+$data1 = array();
+while($row = $result1->fetch_assoc()) 
+{ 
+    $data1[] = array (
+            'value' => $row['INSTNM'],
+        );
+} 
+$collegeList=json_encode($data1);
+}
+$sql2 = "SELECT * FROM us_states";
+$result2 = $conn->query($sql2);
+if(!$result2){
+echo printf("Fuck didnt work");
+}
+else{
+$data2 = array();
+while($row = $result2->fetch_assoc()) 
+{ 
+     $data2[] = array (
+            'value' => $row['fullName'],
+            'data' => $row['initial'],
+        );
+} 
+$stateList = json_encode($data2);
+}
+
+$sql3  = "SELECT * FROM major_salary";
+$result3 = $conn->query($sql3);
+if (!$result3) {
+     echo printf("Could not successfully run query ($sql3) from DB: %s", $dbname);
+}
+else{
+$data3 = array();
+while($row = $result3->fetch_assoc()) 
+{ 
+     $data3[] = array (
+            'value' => $row['Major'],
+            'data' => $row['Median'],
+        );
+} 
+$majorList=json_encode($data3);
+}
+$conn->close();
+?> 
+<script type="text/javascript">
+    var colleges = <?php echo $collegeList ?>;
+    var states = <?php echo $stateList ?>;
+    var majors = <?php echo $majorList ?>;
+    //JSON.parse(colleges);
+</script>
  <?php
  
   $localtest = true;
