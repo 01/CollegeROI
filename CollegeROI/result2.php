@@ -1,4 +1,6 @@
-
+<?php include 'header.php'; ?>
+<?php include 'connect.php'; ?>
+<?php include 'sidebar.php'; ?>
 
   <title>Input Autocomplete Suggestions Demo</title>
 <link href='css/bootstrap.css' rel='stylesheet' />
@@ -16,7 +18,19 @@
     <script type="text/javascript" src="js/map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwqtFDpH6Vj3zIF5YJh3OidKS7Jy0rbKE"></script>
      <link href="css/mystyles.css" rel="stylesheet">
+<div class = "container">
+  <br>
+      <p style="text-align:center;">
+          Select a couple of colleges for comparison an
+      </p>
 
+      <p class="text-center">
+        <button class="btn btn-primary" id= "Submit">
+          Submit
+        </button>
+        </p>
+  <br>
+  <div class="col-sm-offset-2">
 
  <?php
  
@@ -140,7 +154,7 @@
             }
             if ($result->num_rows > 0) {
 
-  echo '<button type="submit" class="btn btn-primary" id= "compareSubmit">Submit</button><br>';
+ 
           while($row = $result->fetch_assoc()) {
                 //echo "id: " . $row["INSTNM"]."<br>";
             /****** Storing all necessary values for each tuple Each iteration of loop is single tuple *****************/
@@ -181,29 +195,44 @@
  <!-- Card go here-->
 
                   <!--Begin Card need the line under in the main result taken out here for neatness-->
-          <div class="col-md-4 col-sm-6">
+          <div class="col-md-6 col-sm-6">
              <div class="card-container manual-flip">
                 <div class="card">
                     <div class="front">
-                        <div class="cover">
-                            <div class = "map" id="googleMap$collegeUnitID"></div>
-                            <script>
-                            initialize($collegeLat, $collegeLong,$collegeUnitID);</script>
-                        </div>
-                        <div class="content">
+                        <div class="cover2">
                         <img style="display:inline-block" src="//logo.clearbit.com/$collegeURL?size=80">
                             <div style="display:inline-block; width : 70%;">
-
                               
                                 <h3 class="name"><b>$collegeName</b></h3>
                                 
                                 <p class="text-center profession">Check out what we have to offer on the back</p> 
                             </div>
-                              <label class="moveright custom-control custom-checkbox">
-                                          <input type="checkbox" value= "$collegeUnitID" id= "compare" class="custom-control-input">
-                                          <span class="custom-control-indicator"></span>
-                                          <span class="custom-control-description">add for comparison</span>
-                                        </label>
+
+                        </div>
+                        <div class="content">
+                              <div class="stats-container">
+                                    <div class="stats">
+                                        <h4>235</h4>
+                                        <p>
+                                            Followers
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4>114</h4>
+                                        <p>
+                                            Following
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4>35</h4>
+                                        <p>
+                                            Projects
+                                        </p>
+                                    </div>
+                                </div>
+                        </div>
+                        
+                            
 
                             <div class="footer">
                                 <div class="social-links text-center">
@@ -212,186 +241,53 @@
                              <button class="btn btn-simple" onclick="rotateCard(this)">
                                     <i class="fa fa-mail-forward"></i> Additional information
                                 </button>
-                            </div>
+
 
                         </div>
                     </div> <!-- end front panel -->
                     <div class="back">
                         <div class="header">
-                                <ul class="nav nav-tabs">
-                                  <li class="active"><a data-toggle="tab" href="#description$collegeUnitID">Info</a></li>
-                                  <li><a data-toggle="tab" href="#menu1$collegeUnitID">Stats</a></li>
-                                  <li><a data-toggle="tab" href="#menu2$collegeUnitID">Cost</a></li>
-                                  <li><a data-toggle="tab" href="#menu3$collegeUnitID">Salary</a></li>
-                                  <li class="movetop">
-                                        <label class="custom-control custom-checkbox">
-                                          <input type="checkbox" value= "$collegeUnitID" id= "compare" class="custom-control-input">
-                                          <span class="custom-control-indicator"></span>
-                                          <span class="custom-control-description">add for comparison</span>
-                                        </label>
-                                  </li>
-                                </ul>
+                            <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
                         </div>
                         <div class="content">
-                            <div class="tab-content">
-                                <div id="description$collegeUnitID" class="main tab-pane fade in active">
-                                    <h4 class="text-center">General Info</h4>
-                                    <p class="text-center">$collegeName is a <b>$isPublic</b> College located in the $region</p>
+                            <div class="main">
+                                <h4 class="text-center">Job Description</h4>
+                                <p class="text-center">Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p>
 
-                                    <div class="stats-container">
-                                        <div class="stats">
-                                            <h4>Address</h4>
-                                            <p>
-                                                $collegeCity, $collegeState $collegeZip
-                                            </p>
-                                            <p></p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Type of Environment</h4>
-                                            <p>
-                                                $environmentName 
-                                            </p>
-                                            <p>
-                                              $environmentDESC
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Student Population</h4>
-                                            <p>
-                                                $collegePop
-                                            </p>
-                                        </div>
+                                <div class="stats-container">
+                                    <div class="stats">
+                                        <h4>235</h4>
+                                        <p>
+                                            Followers
+                                        </p>
                                     </div>
-
-                                </div>
-                              <div id="menu1$collegeUnitID" class="main tab-pane fade">
-                                    <h4 class="text-center">School Statistics</h4>
-                                    <p class="text-center">Find out our stats</p>
-
-                                    <div class="stats-container">
-                                        <div class="stats">
-                                            <h4>Acceptance Rate</h4>
-                                            <p>
-                                                $collegeAdm %
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Graduation rate</h4>
-                                            <p>
-                                                $gradRate %
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>Financial aid</h4>
-                                            <p>
-                                                $collegeFinAid %
-                                            </p>
-                                        </div>
+                                    <div class="stats">
+                                        <h4>114</h4>
+                                        <p>
+                                            Following
+                                        </p>
                                     </div>
-
-                                </div>
-                              <div id="menu2$collegeUnitID" class="main tab-pane fade">
-                                    <h4 class="text-center move" style = "font-size: 14px">How much others pay</h4>
-                                    <p class="text-center move" style = "font-size: 14px">Check to see<br> how much other are paying</p>
-                                    <div class="stats-container">
-                                        <div class="stats">
-                                            <h4 style = "font-size: 14px">AVG In state tution</h4>
-                                            <p style = "font-size: 14px">
-                                                $ $inState
-                                            </p>
-                                            <h4 style = "font-size: 14px">AVG out of state tuition</h4>
-                                            <p style = "font-size: 14px">
-                                                $ $outState
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4 style = "font-size: 14px">Cost W/O financial aid</h4>
-                                            <p style = "font-size: 14px">
-                                               $ $avgCost
-                                            </p>
-                                            <h4 style = "font-size: 14px">AVG cost W financial aid</h4>
-                                            <p>
-                                                $ $netPrice
-                                            </p>
-                                        </div>
-                                        <div class="stats raise">
-                                            <h3 style = "font-size: 12px">Family income</h3>
-                                            <h4 style = "font-size: 12px">$0-$30,000</h4>
-                                            <p font-size: 12px>
-                                                $ $np030
-                                            </p>
-                                            <h4 style = "font-size: 12px">$30,000 - $48,000</h4>
-                                            <p style = "font-size: 12px">
-                                                $ $np3048
-                                            </p>
-                                            <h4 style = "font-size: 12px">$48,000 - $75,000</h4>
-                                            <p style = "font-size: 12px">
-                                                $ $np4875
-                                            </p>
-                                            <h4 style = "font-size: 12px">$75,000 - $110,000</h4>
-                                            <p style = "font-size: 12px">
-                                                $ $np7511
-                                            </p style = "font-size: 12px">
-                                            <h4 style = "font-size: 12px">$110,000+</h4>
-                                            <p style = "font-size: 12px">
-                                                $ $np110P
-                                            </p>
-                                        </div>
+                                    <div class="stats">
+                                        <h4>35</h4>
+                                        <p>
+                                            Projects
+                                        </p>
                                     </div>
-
-                                </div>
-                                <div id="menu3$collegeUnitID" class="main tab-pane fade">
-                                    <h4 class="text-center">What are People earning once they graduate</h4>
-                                    <p class="text-center">Info here</p>
-
-                                    <div class="stats-container">
-                                        <div class="stats">
-                                            <h4 style = "font-size: 14px">Employment Rate</h4>
-                                            <p style = "font-size: 14px">
-                                                $empRate %
-                                            </p>
-                                        </div>
-                                        <div class="stats" >
-                                            <h4 style = "font-size: 14px">Median Two Year Salary</h4>
-                                            <p style = "font-size: 14px">
-                                                $ $twoYearSalary
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4 style = "font-size: 14px">Median Six Year Salary</h4>
-                                            <p style = "font-size: 14px">
-                                                $ $sixYearSalary
-                                            </p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4 style = "font-size: 14px">Median Eight Year Salary</h4>
-                                            <p style = "font-size: 14px">
-                                                $ $eightYearSalary
-                                            </p>
-                                        </div>
-                                    </div>
-
                                 </div>
 
-                        </div>
-                          
-                        <div class="footer">
-                            
-                            <div class="social-links text-center">
-                                <a href="http://$collegeURL"> $collegeName Website </a>
                             </div>
+                        </div>
+                        <div class="footer">
                             <button class="btn btn-simple" rel="tooltip" title="Flip Card" onclick="rotateCard(this)">
                                 <i class="fa fa-reply"></i> Back
                             </button>
-                            
                         </div>
-                        </div>
-                    </div> <!-- end back panel -->
+                    </div>
 
                 </div> <!-- end card -->
             </div> <!-- end card-container -->
             </div>
-            </div>
+
 EOT;
     } //echo "</div></div></div>";
 } else {

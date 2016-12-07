@@ -65,23 +65,22 @@ $top10LowMedDebtQuery = "Select INSTNM, DEBT_MDN From Main_Table WHERE (DEBT_MDN
 $top10HighMedDebtQuery = "Select INSTNM, DEBT_MDN From Main_Table WHERE (DEBT_MDN > 9) ORDER BY DEBT_MDN DESC LIMIT 10"; 
 $top10LowMedDebtResult= $conn->query($top10LowMedDebtQuery);
 $top10HighMedDebtResult= $conn->query($top10HighMedDebtQuery);
-$top10LowGenderEQQuery = "Select INSTNM, (FEMALE_DEBT_MDN / MALE_DEBT_MDN) as FemaleToMale From Main_Table WHERE (MALE_DEBT_MDN> 0) ORDER BY DEBT_MDN ASC LIMIT 10";  
-$top10HighGenderEQQuery = "Select INSTNM, (FEMALE_DEBT_MDN / MALE_DEBT_MDN) as FemaleToMale From Main_Table WHERE (MALE_DEBT_MDN > 0) ORDER BY DEBT_MDN DESC LIMIT 10"; 
+$top10LowGenderEQQuery = "Select INSTNM, (FEMALE_DEBT_MDN / MALE_DEBT_MDN) as FemaleToMale From Main_Table WHERE (DEBT_MDNc> 0) ORDER BY DEBT_MDN ASC LIMIT 10";  
+$top10HighGenderEQQuery = "Select INSTNM, (FEMALE_DEBT_MDN / MALE_DEBT_MDN) as FemaleToMale From Main_Table WHERE (DEBT_MDN > 9) ORDER BY DEBT_MDN DESC LIMIT 10"; 
 $top10LowGenderEQResult= $conn->query($top10LowGenderEQQuery);
 $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
 /*
 */
 ?>
 
-  <div id="expandable" class="section scrollspy">
+  <div id="expandable" class="scrollspy">
         <div class="row">
-          <div class="col s12 m3"><h5 class="light">Expandable</h5></div>
           <div class="col s12 m9">
-            <ul class="collapsible" data-collapsible="expandable">
+            <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
               <li>
                 <div class="collapsible-header"><i class="material-icons">filter_drama</i>  Top 10 Easiest Schools to Get Into</div>
                 <div class="collapsible-body"><p>
-        <?php          
+                <pre class="tab"><?php          
         if(!$top10EasyResult){
             echo "Could not find top 10 Admission Rates";
           }
@@ -90,18 +89,20 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
             while($row =  $top10EasyResult->fetch_assoc()) {
               $school = $row["INSTNM"];
               $admEasy = $row["ADM_RATE"] *100;
-              echo '<p style="display:inline">'."$i.) $school: ";
+              echo '<p style="display:inline">'."$i.)$school: ";
               echo " $admEasy % </p><br>";
               $i++;      
             }
           }
           ?>
                 </p></div>
+</pre>
               </li>
               <li>
-                <div class="collapsible-header"><i class="material-icons">place</i>Top 10 Hardest Schools to Get Into</div>
-                <div class="collapsible-body"><p>
-                 <?php          
+            <div class="collapsible-header"><i class="material-icons">subtitles</i>Top 10 Hardest Schools to Get Into</div>
+<div class="collapsible-body">
+
+             <pre class = "tab"><?php          
         if(!$top10HardResult){
             echo "Could not find top 10 Lowest Admission Rates";
           }
@@ -110,17 +111,19 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
             while($row =  $top10HardResult->fetch_assoc()) {
               $school = $row["INSTNM"];
               $admHard = $row["ADM_RATE"] *100;
-              echo '<p style="display:inline">'."$i.) $school: ";
+              echo '<p style="display:inline">'."$i.)$school:";
               echo " $admHard % </p><br>";
               $i++;      
             }
           }
           ?>
                </p></div>
+               </pre>
               </li>
               <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Largest Populations</div>
                 <div class="collapsible-body"><p>
+                <pre class = "tab"> 
                   <?php          
         if(!$top10LargePopResult){
             echo "Could not find top 10 Largest Populations";
@@ -139,11 +142,12 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
 
 
                 </p></div>
+                </pre>
               </li>
           <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Smallest Populations</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+             <pre class = "tab"><?php          
         if(!$top10SmallPopResult){
             echo "Could not find top 10 Largest Populations";
           }
@@ -161,11 +165,12 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
 
 
                 </p></div>
+                </pre>
       </li> 
       <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Lowest Average Cost</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10LowAvgCostResult){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -181,6 +186,7 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
+                </pre>
       </li> 
 
 
@@ -188,7 +194,7 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
       <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Highest Average Cost</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10HighAvgCostResult){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -204,6 +210,7 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
+                </pre>
       </li> 
 
 
@@ -211,7 +218,7 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
       <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Lowest In State Tuition</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10LowInStateResult){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -227,13 +234,14 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
+                </pre>
       </li> 
 
 
        <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Highest In State Tuition</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10HighInStateResult){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -249,12 +257,13 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
+                </pre>
       </li> 
 
        <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Lowest Out of State Tuition</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10LowOutStateResult){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -270,12 +279,13 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
+                </pre>
       </li> 
 
       <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Highest Out of State Tuition</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10HighOutStateResult){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -290,13 +300,14 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
             }
           }
           ?>
+          </pre>
                 </p></div>
       </li> 
 
       <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Lowest Net Cost</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10LowNetResult){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -312,12 +323,13 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
+                </pre>
       </li> 
 
       <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Lowest Net Cost for family that makes under $30k annually</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10LowNet030Result){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -333,13 +345,14 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
+                </pre>
       </li> 
 
 
       <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Lowest Net Cost for family that makes between $30k-$48k</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10LowNet3048Result){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -355,13 +368,14 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
+                </pre>
       </li> 
 
 
       <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Lowest Net Cost for family that makes between $48k-$75k</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10LowNet4875Result){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -377,12 +391,13 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
+                </pre>
       </li> 
 
        <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Lowest Net Cost for family that makes between $75k-$110k</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10LowNet7511Result){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -398,12 +413,13 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
+                </pre>
       </li> 
 
       <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Lowest Net Cost for family that makes $110k or higher</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10LowNet110PResult){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -419,13 +435,14 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
+                </pre>
       </li> 
 
 
       <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Lowest Percentage Loans</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10LowPLoanResult){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -441,13 +458,14 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
+                </pre>
       </li> 
 
 
       <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Lowest Unemployment Rate</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10LowUNEMPResult){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -463,13 +481,14 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
+                </pre>
       </li> 
 
 
       <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Highest Unemployment Rate</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10HighUNEMPResult){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -485,13 +504,14 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
+                </pre>
       </li> 
 
 
        <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Lowest Earnings 6 years after graduating</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10LowEarnP6Result){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -507,13 +527,14 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
+                </pre>
       </li> 
 
 
       <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Highest Earnings 6 years after graduating</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10HighEarnP6Result){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -529,13 +550,14 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
+                </pre>
       </li> 
 
 
       <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Highest Earnings 8 years after graduating</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10HighEarnP8Result){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -551,13 +573,14 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
+                </pre>
       </li> 
 
 
        <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Lowest Earnings 10 years after graduating</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10LowEarnP10Result){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -573,13 +596,14 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
+                </pre>
       </li> 
 
 
       <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Lowest Graduation Rate</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10LowGradRateResult){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -595,13 +619,14 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
+                </pre>
       </li>
 
 
        <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Highest Graduation Rate</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10HighGradRateResult){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -616,14 +641,16 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
             }
           }
           ?>
+
                 </p></div>
+                </pre>
       </li>
 
 
        <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Lowest Median Debt</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10LowMedDebtResult){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -639,12 +666,13 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
+                </pre>
       </li>
 
       <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Highest Median Debt</div>
                 <div class="collapsible-body"><p>
-                  <?php          
+                <pre class = "tab"><?php          
         if(!$top10HighMedDebtResult){
             echo "Could not find top 10 Lowest Cost Schools";
           }
@@ -660,50 +688,7 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           }
           ?>
                 </p></div>
-      </li>
-
-
-       <li>
-                <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Lowest Gender Equality (Female/Male) Ratio</div>
-                <div class="collapsible-body"><p>
-                  <?php          
-        if(!$top10LowGenderEQResult){
-            echo "Could not find top 10 Lowest Cost Schools";
-          }
-          else{
-          $i = 1;
-            while($row =  $top10LowGenderEQResult->fetch_assoc()) {
-              $school = $row["INSTNM"];
-              $schoolValue = $row["FemaleToMale"];
-              echo '<p style="display:inline">'."$i.) $school: ";
-              echo "$schoolValue</p><br>";
-              $i++;      
-            }
-          }
-          ?>
-                </p></div>
-      </li>
-
-
-      <li>
-                <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Highest Gender Equality (Female/Male) Ratio</div>
-                <div class="collapsible-body"><p>
-                  <?php          
-        if(!$top10HighGenderEQResult){
-            echo "Could not find top 10 Lowest Cost Schools";
-          }
-          else{
-          $i = 1;
-            while($row =  $top10HighGenderEQResult->fetch_assoc()) {
-              $school = $row["INSTNM"];
-              $schoolValue = $row["FemaleToMale"];
-              echo '<p style="display:inline">'."$i.) $school: ";
-              echo "$schoolValue</p><br>";
-              $i++;      
-            }
-          }
-          ?>
-                </p></div>
+                </pre>
       </li>
 
             </ul>
