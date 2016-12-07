@@ -19,10 +19,10 @@ $top10SmallPopQuery = "Select INSTNM, UGDS From Main_Table WHERE (UGDS >0) ORDER
 $top10LargePopResult= $conn->query($top10LargePopQuery);
 $top10SmallPopResult= $conn->query($top10SmallPopQuery); 
 
-$top10AvgCostQuery = "Select INSTNM, AVG_COST From Main_Table WHERE (AVG_COST >0) ORDER BY AVG_COST ASC LIMIT 10";  
-$top10AvgCostQuery = "Select INSTNM, AVG_COST From Main_Table WHERE (AVG_COST >0) ORDER BY AVG_COST DESC LIMIT 10"; 
-$top10AvgCostResult= $conn->query($top10AvgCostQuery);
-$top10AvgCostResult= $conn->query($top10AvgCostQuery); 
+$top10LowAvgCostQuery = "Select INSTNM, AVG_COST From Main_Table WHERE (AVG_COST >0) ORDER BY AVG_COST ASC LIMIT 10";  
+$top10HighAvgCostQuery = "Select INSTNM, AVG_COST From Main_Table WHERE (AVG_COST >0) ORDER BY AVG_COST DESC LIMIT 10"; 
+$top10LowAvgCostResult= $conn->query($top10LowAvgCostQuery);
+$top10HighAvgCostResult= $conn->query($top10HighAvgCostQuery); 
 
 $top10LowInStateQuery = "Select INSTNM, IN_STATE From Main_Table WHERE (IN_STATE > 0) ORDER BY IN_STATE ASC LIMIT 10";  
 $top10HighInStateQuery = "Select INSTNM, IN_STATE From Main_Table WHERE (IN_STATE > 0) ORDER BY IN_STATE  DESC LIMIT 10"; 
@@ -152,9 +152,9 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           $i = 1;
             while($row =  $top10LargePopResult->fetch_assoc()) {
               $school = $row["INSTNM"];
-              $schoolPop = $row["UGDS"] ;
+              $schoolValue = $row["UGDS"] ;
               echo '<p style="display:inline">'."$i.) $school";
-              echo " $schoolPop Students </p><br>";
+              echo " $schoolValue Students </p><br>";
               $i++;      
             }
           }
@@ -174,15 +174,35 @@ $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
           $i = 1;
             while($row =  $top10SmallPopResult->fetch_assoc()) {
               $school = $row["INSTNM"];
-              $schoolPop = $row["UGDS"] ;
+              $schoolValue = $row["UGDS"] ;
               echo '<p style="display:inline">'."$i.) $school";
-              echo " $schoolPop Students </p><br>";
+              echo " $schoolValue Students </p><br>";
               $i++;      
             }
           }
           ?>
 
 
+                </p></div>
+      </li> 
+      <li>
+                <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Lowest Average Cost</div>
+                <div class="collapsible-body"><p>
+                  <?php          
+        if(!$top10LowAvgCostResult){
+            echo "Could not find top 10 Lowest Cost Schools";
+          }
+          else{
+          $i = 1;
+            while($row =  $top10LowAvgCostResult>fetch_assoc()) {
+              $school = $row["INSTNM"];
+              $schoolValue = $row["AVG_COST"] ;
+              echo '<p style="display:inline">'."$i.) $school";
+              echo "$$schoolValue</p><br>";
+              $i++;      
+            }
+          }
+          ?>
                 </p></div>
       </li> 
 
