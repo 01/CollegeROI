@@ -1,13 +1,4 @@
-<?php include 'header.php'; ?>
-<?php include 'connect.php'; ?>
-<?php include 'sidebar.php'; ?>
-<?php include 'content.php'; ?>
-
-
-
 <?php
-$debug = false;
-
 $top10AdmEasyQuery = "Select INSTNM, ADM_RATE From Main_Table WHERE (ADM_RATE < 1) ORDER BY ADM_RATE DESC LIMIT 10";
 $top10AdmHardQuery = "Select INSTNM, ADM_RATE From Main_Table WHERE (ADM_RATE > 0) ORDER BY ADM_RATE ASC LIMIT 10";
 $top10EasyResult= $conn->query($top10AdmEasyQuery);
@@ -19,10 +10,10 @@ $top10SmallPopQuery = "Select INSTNM, UGDS From Main_Table WHERE (UGDS >0) ORDER
 $top10LargePopResult= $conn->query($top10LargePopQuery);
 $top10SmallPopResult= $conn->query($top10SmallPopQuery); 
 
-$top10LowAvgCostQuery = "Select INSTNM, AVG_COST From Main_Table WHERE (AVG_COST >0) ORDER BY AVG_COST ASC LIMIT 10";  
-$top10HighAvgCostQuery = "Select INSTNM, AVG_COST From Main_Table WHERE (AVG_COST >0) ORDER BY AVG_COST DESC LIMIT 10"; 
-$top10LowAvgCostResult= $conn->query($top10LowAvgCostQuery);
-$top10HighAvgCostResult= $conn->query($top10HighAvgCostQuery); 
+$top10AvgCostQuery = "Select INSTNM, AVG_COST From Main_Table WHERE (AVG_COST >0) ORDER BY AVG_COST ASC LIMIT 10";  
+$top10AvgCostQuery = "Select INSTNM, AVG_COST From Main_Table WHERE (AVG_COST >0) ORDER BY AVG_COST DESC LIMIT 10"; 
+$top10AvgCostResult= $conn->query($top10AvgCostQuery);
+$top10AvgCostResult= $conn->query($top10AvgCostQuery); 
 
 $top10LowInStateQuery = "Select INSTNM, IN_STATE From Main_Table WHERE (IN_STATE > 0) ORDER BY IN_STATE ASC LIMIT 10";  
 $top10HighInStateQuery = "Select INSTNM, IN_STATE From Main_Table WHERE (IN_STATE > 0) ORDER BY IN_STATE  DESC LIMIT 10"; 
@@ -91,120 +82,5 @@ $top10LowGenderEQQuery = "Select INSTNM, (FEMALE_DEBT_MDN / MALE_DEBT_MDN) as Fe
 $top10HighGenderEQQuery = "Select INSTNM, (FEMALE_DEBT_MDN / MALE_DEBT_MDN) as FemaleToMale From Main_Table WHERE (DEBT_MDN > 9) ORDER BY DEBT_MDN DESC LIMIT 10"; 
 $top10LowGenderEQResult= $conn->query($top10LowGenderEQQuery);
 $top10HighGenderEQResult= $conn->query($top10HighGenderEQQuery);
-/*
 
-*/
 ?>
-
-  <div id="expandable" class="section scrollspy">
-        <div class="row">
-          <div class="col s12 m3"><h5 class="light">Expandable</h5></div>
-          <div class="col s12 m9">
-            <ul class="collapsible" data-collapsible="expandable">
-              <li>
-                <div class="collapsible-header"><i class="material-icons">filter_drama</i>  Top 10 Easiest Schools to Get Into</div>
-                <div class="collapsible-body"><p>
-        <?php          
-        if(!$top10EasyResult){
-            echo "Could not find top 10 Admission Rates";
-          }
-          else{
-          $i = 1;
-            while($row =  $top10EasyResult->fetch_assoc()) {
-              $school = $row["INSTNM"];
-              $admEasy = $row["ADM_RATE"] *100;
-              echo '<p style="display:inline">'."$i.) $school";
-              echo " $admEasy % </p><br>";
-              $i++;      
-            }
-          }
-          ?>
-                </p></div>
-              </li>
-              <li>
-                <div class="collapsible-header"><i class="material-icons">place</i>Top 10 Hardest Schools to Get Into</div>
-                <div class="collapsible-body"><p>
-                 <?php          
-        if(!$top10HardResult){
-            echo "Could not find top 10 Lowest Admission Rates";
-          }
-          else{
-          $i = 1;
-            while($row =  $top10HardResult->fetch_assoc()) {
-              $school = $row["INSTNM"];
-              $admHard = $row["ADM_RATE"] *100;
-              echo '<p style="display:inline">'."$i.) $school";
-              echo " $admHard % </p><br>";
-              $i++;      
-            }
-          }
-          ?>
-               </p></div>
-              </li>
-              <li>
-                <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Largest Populations</div>
-                <div class="collapsible-body"><p>
-                  <?php          
-        if(!$top10LargePopResult){
-            echo "Could not find top 10 Largest Populations";
-          }
-          else{
-          $i = 1;
-            while($row =  $top10LargePopResult->fetch_assoc()) {
-              $school = $row["INSTNM"];
-              $schoolValue = $row["UGDS"] ;
-              echo '<p style="display:inline">'."$i.) $school";
-              echo " $schoolValue Students </p><br>";
-              $i++;      
-            }
-          }
-          ?>
-
-
-                </p></div>
-              </li>
-          <li>
-                <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Smallest Populations</div>
-                <div class="collapsible-body"><p>
-                  <?php          
-        if(!$top10LargePopResult){
-            echo "Could not find top 10 Largest Populations";
-          }
-          else{
-          $i = 1;
-            while($row =  $top10SmallPopResult->fetch_assoc()) {
-              $school = $row["INSTNM"];
-              $schoolValue = $row["UGDS"] ;
-              echo '<p style="display:inline">'."$i.) $school";
-              echo " $schoolValue Students </p><br>";
-              $i++;      
-            }
-          }
-          ?>
-
-
-                </p></div>
-      </li> 
-      <li>
-                <div class="collapsible-header"><i class="material-icons">whatshot</i>Top 10 Schools with Lowest Average Cost</div>
-                <div class="collapsible-body"><p>
-                  <?php          
-        if(!$top10LowAvgCostResult){
-            echo "Could not find top 10 Lowest Cost Schools";
-          }
-          else{
-          $i = 1;
-            while($row =  $top10LowAvgCostResult>fetch_assoc()) {
-              $school = $row["INSTNM"];
-              $schoolValue = $row["AVG_COST"] ;
-              echo '<p style="display:inline">'."$i.) $school";
-              echo "$$schoolValue</p><br>";
-              $i++;      
-            }
-          }
-          ?>
-                </p></div>
-      </li> 
-
-            </ul>
-          </div>
